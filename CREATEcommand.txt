@@ -9,3 +9,4 @@ sass
 		//Меняем конфигурационные файлы
 создаём файл .prettierrc
 добавляем в eslint.config.js строчки для работы с prettier
+прописываем порт в vite.config.ts и меняем способ компиляции sass в css

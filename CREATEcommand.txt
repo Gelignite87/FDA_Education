@@ -1,0 +1,11 @@
+		//Начало проекта
+git clone https://github.com/Gelignite87/FDA_Education.git
+yarn create vite
+		//yarn add -D
+prettier
+eslint-plugin-prettier
+eslint-config-prettier
+sass
+		//Меняем конфигурационные файлы
+создаём файл .prettierrc
+добавляем в eslint.config.js строчки для работы с prettier

@@ -1,10 +1,9 @@
-import { Banner } from '../banner/Banner.tsx'
+import styles from './NotFound.module.sass'
 
 export const NotFound = () => {
   return (
     <>
-      <Banner text="Page not found" />
-      <div>404 page not found</div>
+      <div className={styles.notFound}>404 Page not found</div>
     </>
   )
 }

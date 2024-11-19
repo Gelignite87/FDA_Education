@@ -1,4 +1,4 @@
-import './RightMenu.sass'
+import styles from './RightMenu.module.sass'
 
 export const RightMenu = () => {
   return (

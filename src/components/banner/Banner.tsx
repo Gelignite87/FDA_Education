@@ -1,10 +1,10 @@
-import './Banner.sass'
+import styles from './Banner.module.sass'
 
 export const Banner = ({ text = 'Banner' }) => {
   return (
     <>
-      <div className="background-banner">
-        <h1 className="background-banner-content">{text}</h1>
+      <div className={styles['background-banner']}>
+        <h1>{text}</h1>
       </div>
     </>
   )

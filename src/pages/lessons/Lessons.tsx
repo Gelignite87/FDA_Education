@@ -1,17 +1,31 @@
+import { RightMenu } from '../../components/right-menu/RightMenu.tsx'
 import { NotFound } from '../../components/not-found/NotFound.tsx'
+import { bannerText, lessonComponents } from './lessons.data.ts'
+import { Banner } from '../../components/banner/Banner.tsx'
 import { useParams } from 'react-router-dom'
-import { App } from './app/App.tsx'
+import styles from './Lessons.module.sass'
 
 export const Lessons = () => {
   const { id } = useParams()
-  const typeId = id as keyof typeof componentsMap
-  const componentsMap = {
-    app: <App />,
-    lesson1: <div>Lesson1</div>,
-    lesson2: <div>Lesson2</div>,
-    lesson3: <div>Lesson3</div>,
-    lesson4: <div>Lesson4</div>,
-  }
+  const lessonComponentsId = id as keyof typeof lessonComponents
+  const bannerTextId = id as keyof typeof bannerText
 
-  return <>{componentsMap[typeId] || <NotFound />}</>
+  return (
+    <>
+      <Banner text={bannerText[bannerTextId] || 'Page not found'} />
+      <div className={styles.flex}>
+        <div className={styles.flexRight}>
+          <RightMenu />
+        </div>
+        <div className={styles.flexLeft}>
+          {typeof lessonComponents[lessonComponentsId] === 'function' ? (
+            lessonComponents[lessonComponentsId]()
+          ) : (
+            <NotFound />
+          )}
+        </div>
+      </div>
+      <div>Footer</div>
+    </>
+  )
 }

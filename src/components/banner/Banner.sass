@@ -1,0 +1,39 @@
+.background-banner
+	/* Фоновое изображение */
+	background-image: url('../../assets/FDA_long.jpg')
+	/* Замените на ваш путь к изображению */
+	background-size: cover
+	/* Покрытие всего блока */
+	background-position: center
+	/* Центрирование изображения */
+	background-repeat: no-repeat
+	/* Отключение повторения */
+	border-radius: 16px 16px 0px 0px
+	/* Размеры блока */
+	width: 100%
+	height: 150px
+	/* Затемнение фона */
+	position: relative
+	/* Flexbox для центрирования контента */
+	display: flex
+	justify-content: center
+	/* Горизонтальное центрирование */
+	align-items: center
+	/* Вертикальное центрирование */
+
+	&::before
+		/* Полупрозрачный черный слой */
+		content: ''
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		background-color: rgba(0, 0, 0, 0.01)
+		z-index: 1
+
+	&-content
+		z-index: 2
+		color: white
+		text-align: center
+		padding: 20px

@@ -1,13 +1,15 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.sass';
+import reactLogo from '../../assets/react.svg'
+import { Banner } from '../banner/Banner'
+import viteLogo from '/vite.svg'
+import { useState } from 'react'
+import './App.sass'
 
-function App() {
-  const [count, setCount] = useState(0);
+export const App = () => {
+  const [count, setCount] = useState(0)
 
   return (
     <>
+      <Banner text="Начальная страница Vite" />
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -29,7 +31,5 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
     </>
-  );
+  )
 }
-
-export default App;

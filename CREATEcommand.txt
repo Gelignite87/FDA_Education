@@ -3,6 +3,7 @@ git clone https://github.com/Gelignite87/FDA_Education.git
 yarn create vite
 		//yarn add -D
 prettier
+prettier-plugin-sort-imports
 eslint-plugin-prettier
 eslint-config-prettier
 sass
@@ -10,3 +11,5 @@ sass
 создаём файл .prettierrc
 добавляем в eslint.config.js строчки для работы с prettier
 прописываем порт в vite.config.ts и меняем способ компиляции sass в css
+		//yarn add
+react-router-dom

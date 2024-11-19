@@ -14,10 +14,10 @@ export const Lessons = () => {
     <>
       <Banner text={bannerText[bannerTextId] || 'Page not found'} />
       <div className={styles.flex}>
-        <div className={styles.flexRight}>
+        <div className={styles.flexLeft}>
           <RightMenu />
         </div>
-        <div className={styles.flexLeft}>
+        <div className={styles.flexRight}>
           {typeof lessonComponents[lessonComponentsId] === 'function' ? (
             lessonComponents[lessonComponentsId]()
           ) : (

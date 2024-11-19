@@ -1,5 +1,5 @@
-import { Lessons } from '../components/lessons/Lessons.tsx'
-import { Home } from '../components/home/Home.tsx'
+import { Lessons } from '../pages/lessons/Lessons.tsx'
+import { Home } from '../pages/home/Home.tsx'
 
 export const routes = [
   {

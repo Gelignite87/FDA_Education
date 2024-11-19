@@ -1,6 +1,6 @@
-import { NotFound } from '../not-found/NotFound.tsx'
+import { NotFound } from '../../components/not-found/NotFound.tsx'
 import { useParams } from 'react-router-dom'
-import { App } from '../app/App.tsx'
+import { App } from './app/App.tsx'
 
 export const Lessons = () => {
   const { id } = useParams()

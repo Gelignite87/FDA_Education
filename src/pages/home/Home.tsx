@@ -1,4 +1,4 @@
-import { Banner } from '../banner/Banner.tsx'
+import { Banner } from '../../components/banner/Banner.tsx'
 
 export const Home = () => {
   return (

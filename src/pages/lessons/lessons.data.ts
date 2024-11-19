@@ -1,16 +1,17 @@
 import { App } from './app/App.tsx'
 
-export const bannerText = {
-  app: 'Начальная страница Vite',
-  lesson1: 'lesson1',
-  lesson2: 'lesson2',
-  lesson3: 'lesson3',
-  lesson4: 'lesson4',
-}
-export const lessonComponents = {
-  app: App,
-  lesson1: App,
-  lesson2: App,
-  lesson3: App,
-  lesson4: App,
+export const lessonsMap = {
+  app: { banner: 'Начальная страница Vite', component: App },
+  array: { banner: 'Массивы', component: App },
+  object: { banner: 'Объекты', component: App },
+  ternary_operator: { banner: 'Тернарные операторы', component: App },
+  prototype: { banner: 'Прототипы', component: App },
+  class: {
+    banner: 'Классы JavaScript, введённые в ECMAScript 2015',
+    component: App,
+  },
+  style: {
+    banner: 'Основные стили Css и их аналоги в Tailwind',
+    component: App,
+  },
 }

@@ -1,6 +1,7 @@
 import { LeftMenu } from '../../components/left-menu/LeftMenu.tsx'
 import { NotFound } from '../../components/not-found/NotFound.tsx'
 import { Banner } from '../../components/banner/Banner.tsx'
+import { Footer } from '../../components/footer/Footer.tsx'
 import { lessonsMap } from './lessons.data.ts'
 import { useParams } from 'react-router-dom'
 import styles from './Lessons.module.sass'
@@ -24,7 +25,7 @@ export const Lessons = () => {
           )}
         </div>
       </div>
-      <div>Footer</div>
+      <Footer />
     </>
   )
 }

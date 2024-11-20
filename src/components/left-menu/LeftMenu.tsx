@@ -11,7 +11,7 @@ export const LeftMenu = () => {
   return (
     <>
       <nav>
-        <ul>
+        <ul className={styles.ul_LeftMenu}>
           {lessonsArray.map((item, i) => (
             <li key={`_leftMenu_${i}`}>
               <Link to={`/lessons/${item.key}`}>{item.property.banner}</Link>

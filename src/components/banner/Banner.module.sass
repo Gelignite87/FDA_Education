@@ -1,3 +1,5 @@
+@use '../../_variables'
+
 .background-banner
 	/* Фоновое изображение */
 	background-image: url('../../assets/FDA_long.jpg')
@@ -20,7 +22,6 @@
 	/* Горизонтальное центрирование */
 	align-items: center
 	/* Вертикальное центрирование */
-
 	&::before
 		/* Полупрозрачный черный слой */
 		content: ''
@@ -31,3 +32,6 @@
 		bottom: 0
 		background-color: rgba(0, 0, 0, 0.01)
 		z-index: 1
+	h1
+		color: variables.$color-lovely-violet-light
+		filter: drop-shadow(0 0 0.4em #ffffffaa)

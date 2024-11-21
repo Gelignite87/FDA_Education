@@ -1,4 +1,3 @@
-import { Timer } from './useState_useRef/Timer.tsx'
 import { App } from './start_page_Vite/App.tsx'
 
 export const lessonsMap = {
@@ -14,9 +13,5 @@ export const lessonsMap = {
   style: {
     banner: 'Основные стили Css и их аналоги в Tailwind',
     component: App,
-  },
-  useState_useRef: {
-    banner: 'Xуки React useState и useRef на примере таймера',
-    component: Timer,
   },
 }

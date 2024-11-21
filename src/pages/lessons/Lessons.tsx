@@ -5,16 +5,15 @@ import { Footer } from '../../components/footer/Footer.tsx'
 import { lessonsMap } from './lessons.data.ts'
 import { useParams } from 'react-router-dom'
 import styles from './Lessons.module.sass'
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 
 export const Lessons = () => {
   const { id } = useParams()
   const lessonsMap_id = id as keyof typeof lessonsMap
 
   const [count, setCount] = useState<number>(0)
-  const timerRef = useRef<number | null>(null)
-  const props1 = { count, setCount }
-  const props2 = { timerRef }
+  const props1 = { count }
+  const props2 = { setCount }
 
   return (
     <>

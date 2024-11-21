@@ -1,12 +1,7 @@
 import reactLogo from '../../../assets/react.svg'
 import styles from './App.module.sass'
+import { AppProps } from './AppTypes'
 import viteLogo from '/vite.svg'
-
-type AppProps = {
-  count: number
-  setCount: React.Dispatch<React.SetStateAction<number>>
-  timerRef: { current: number | null }
-}
 
 export const App: React.FC<AppProps> = ({ count, setCount }) => {
   return (

@@ -1,27 +1,16 @@
-@use '../../_variables'
-
 .background-banner
-	/* Фоновое изображение */
 	background-image: url('../../assets/FDA_long.jpg')
-	/* Замените на ваш путь к изображению */
 	background-size: cover
-	/* Покрытие всего блока */
 	background-position: center
-	/* Центрирование изображения */
 	background-repeat: no-repeat
-	/* Отключение повторения */
 	border-radius: 16px 16px 0px 0px
-	/* Размеры блока */
 	width: 100%
-	height: 150px
-	/* Затемнение фона */
+	height: 180px
 	position: relative
-	/* Flexbox для центрирования контента */
+	/* position: relative нужен чтобы привязать &::before с position: absolute */
 	display: flex
 	justify-content: center
-	/* Горизонтальное центрирование */
 	align-items: center
-	/* Вертикальное центрирование */
 	&::before
 		/* Полупрозрачный черный слой */
 		content: ''
@@ -33,5 +22,6 @@
 		background-color: rgba(0, 0, 0, 0.01)
 		z-index: 1
 	h1
-		color: variables.$color-lovely-violet-light
-		filter: drop-shadow(0 0 0.4em #ffffffaa)
+		margin: 0
+		text-align: center
+		width: 90%

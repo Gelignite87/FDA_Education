@@ -1,11 +1,14 @@
 import reactLogo from '../../../assets/react.svg'
 import styles from './App.module.sass'
 import viteLogo from '/vite.svg'
-import { useState } from 'react'
 
-export const App = () => {
-  const [count, setCount] = useState(0)
+type AppProps = {
+  count: number
+  setCount: React.Dispatch<React.SetStateAction<number>>
+  timerRef: { current: number | null }
+}
 
+export const App: React.FC<AppProps> = ({ count, setCount }) => {
   return (
     <>
       <div>

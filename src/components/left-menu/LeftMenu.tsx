@@ -1,12 +1,14 @@
+import { useState_useRef } from '../../pages/useState_useRef/Timer'
 import { lessonsMap } from '../../pages/lessons/lessons.data'
 import styles from './LeftMenu.module.sass'
 import { Link } from 'react-router-dom'
 
 export const LeftMenu = () => {
-  const lessonsArray = Object.entries(lessonsMap).map(([key, property]) => ({
+  const lessonsArray = Object.entries(lessonsMap).map(([key, { banner }]) => ({
     key,
-    property,
+    banner,
   }))
+  lessonsArray.push(useState_useRef)
 
   return (
     <>
@@ -14,7 +16,7 @@ export const LeftMenu = () => {
         <ul className={styles.ul_LeftMenu}>
           {lessonsArray.map((item, i) => (
             <li key={`_leftMenu_${i}`}>
-              <Link to={`/lessons/${item.key}`}>{item.property.banner}</Link>
+              <Link to={`/lessons/${item.key}`}>{item.banner}</Link>
             </li>
           ))}
         </ul>

@@ -1,0 +1,46 @@
+@use '../../variables'
+
+.timer_flex
+	display: flex
+	height: 100%
+.timer_flexLeft
+	width: 20%
+	border: 1px solid variables.$color-lovely-pink
+	padding: 20px
+	margin: 10px 0
+	border-radius: 0.8rem
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)
+.timer_flexRight
+	flex: 1
+	margin: 10px 0 10px 30px
+	border-radius: 0.8rem
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)
+	> p
+		text-indent: 1.5em
+.timer_seconds
+	margin: 0 0 0 15%
+	width: 230px
+	> div
+		display: flex
+		justify-content: space-between
+		border: 1px solid white
+		&:last-child
+			border: none
+		> p
+			font-weight: 500
+			width: 49%
+	.timer_seconds_p_left
+		text-align: right
+.timer_text
+	> p
+		text-indent: 1.5em
+		margin: 0
+		> span
+			color: variables.$color-lovely-pink
+			background-color: #1a1a1a
+			&:hover
+				color: variables.$color-lovely-violet-light
+				filter: drop-shadow(0 0 0.8em #646cffcc)
+				cursor: pointer
+			&:active
+				color: variables.$color-lovely-pink

@@ -18,11 +18,11 @@ export const Lessons = () => {
   return (
     <>
       <Banner text={lessonsMap[lessonsMap_id]?.banner || 'Page not found'} />
-      <div className={styles.flex}>
-        <div className={styles.flexLeft}>
+      <div className={styles.lessons_flex}>
+        <div className={styles.lessons_flexLeft}>
           <LeftMenu />
         </div>
-        <div className={styles.flexRight}>
+        <div className={styles.lessons_flexRight}>
           {lessonsMap[lessonsMap_id] ? (
             lessonsMap[lessonsMap_id].component({ ...props1, ...props2 })
           ) : (

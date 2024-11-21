@@ -1,17 +1,31 @@
-import { useRef, useState } from 'react'
+import { LeftMenu } from '../../components/left-menu/LeftMenu'
+import { Banner } from '../../components/banner/Banner'
+import { Footer } from '../../components/footer/Footer'
+import { useEffect, useRef, useState } from 'react'
+import styles from './Timer.module.sass'
 
-// const useState_useRef = {
-//   banner: 'Xуки React useState и useRef на примере таймера',
-//   component: 'Timer',
-// }
+export const useState_useRef = {
+  key: 'useState_useRef',
+  banner: 'Xуки React useState и useRef на примере таймера',
+}
 
 export const Timer = () => {
-  const [seconds, setSeconds] = useState<number>(0)
-  const timerRef = useRef<number | null>(null)
+  const [seconds, setSeconds] = useState<number>(0) // useState вызывает повторный рендеринг при изменении seconds
+  const [isRunning, setIsRunning] = useState<boolean>(false)
+  const timerRef = useRef<number | null>(null) // useRef создаёт объект с ключом current, который может хранить значение, но не вызывает повторного рендеринга компонента при изменении этого значения
+
+  const handleCopy = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text)
+    } catch (error) {
+      console.error('Ошибка при копировании: ', error)
+    }
+  }
 
   const startTimer = () => {
     if (!timerRef.current) {
-      timerRef.current = setInterval(() => setSeconds(s => s + 1), 1000)
+      timerRef.current = setInterval(() => setSeconds(s => s + 0.1), 100) // Записываем в timerRef.current уникальный идентификатор функции setInterval
+      setIsRunning(true)
     }
   }
 
@@ -19,6 +33,7 @@ export const Timer = () => {
     if (timerRef.current) {
       clearInterval(timerRef.current)
       timerRef.current = null
+      setIsRunning(false)
     }
   }
 
@@ -27,12 +42,78 @@ export const Timer = () => {
     setSeconds(0)
   }
 
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+      }
+    }
+  }, [])
+
   return (
-    <div>
-      <p>Seconds: {seconds}</p>
-      <button onClick={startTimer}>Start</button>
-      <button onClick={stopTimer}>Stop</button>
-      <button onClick={clearTimer}>Clear</button>
-    </div>
+    <>
+      <Banner text={useState_useRef.banner || 'Page not found'} />
+      <div className={styles.timer_flex}>
+        <div className={styles.timer_flexLeft}>
+          <LeftMenu />
+        </div>
+        <div className={styles.timer_flexRight}>
+          <p>
+            Рассмотрим использование хуков React useState и useRef на примере
+            таймера:
+          </p>
+          <div className={styles.timer_seconds}>
+            <div>
+              <p className={styles.timer_seconds_p_left}>Seconds: </p>
+              <p>{seconds.toFixed(1)}</p>
+            </div>
+            <div>
+              <button onClick={startTimer} disabled={isRunning}>
+                Start
+              </button>
+              <button onClick={stopTimer} disabled={!isRunning}>
+                Stop
+              </button>
+              <button onClick={clearTimer} disabled={seconds === 0}>
+                Clear
+              </button>
+            </div>
+          </div>
+          <div className={styles.timer_text}>
+            <br />
+            <p>
+              <i>useState</i> вызывает повторный рендеринг при изменении
+              значения переменной. Записывается как &nbsp;
+              <span
+                onClick={() =>
+                  handleCopy(
+                    'const [seconds, setSeconds] = useState<number>(0)',
+                  )
+                }
+              >
+                const [seconds, setSeconds] = useState&lt;number&gt;(0)
+              </span>
+            </p>
+            <p>
+              <i>useRef</i> создаёт объект с ключом current, который может
+              хранить значение, но не вызывает повторного рендеринга компонента
+              при изменении этого значения. Записывается как &nbsp;
+              <span
+                onClick={() =>
+                  handleCopy('const timerRef = useRef<number | null>(null)')
+                }
+              >
+                const timerRef = useRef&lt;number | null&gt;(null)
+              </span>
+              .&nbsp; В дальнейшем запись происходит в переменную&nbsp;
+              <span onClick={() => handleCopy('timerRef.current')}>
+                timerRef.current
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
   )
 }

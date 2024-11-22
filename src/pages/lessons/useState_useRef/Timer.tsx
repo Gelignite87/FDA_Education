@@ -1,11 +1,17 @@
-import { useEffect, useRef, useState } from 'react'
 import styles from './Timer.module.sass'
+import { useEffect } from 'react'
 
-export const Timer: React.FC = () => {
-  const [seconds, setSeconds] = useState<number>(0) // useState вызывает повторный рендеринг при изменении seconds
-  const [isRunning, setIsRunning] = useState<boolean>(false)
-  const timerRef = useRef<number | null>(null) // useRef создаёт объект с ключом current, который может хранить значение, но не вызывает повторного рендеринга компонента при изменении этого значения
-
+export const Timer: React.FC<{
+  props: {
+    seconds: number
+    setSeconds: React.Dispatch<React.SetStateAction<number>>
+    isRunning: boolean
+    setIsRunning: React.Dispatch<React.SetStateAction<boolean>>
+    timerRef: React.MutableRefObject<number | null>
+  }
+}> = ({
+  props: { seconds, setSeconds, isRunning, setIsRunning, timerRef },
+}) => {
   const handleCopy = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text)
@@ -35,11 +41,7 @@ export const Timer: React.FC = () => {
   }
 
   useEffect(() => {
-    return () => {
-      if (timerRef.current) {
-        clearInterval(timerRef.current)
-      }
-    }
+    return () => stopTimer()
   }, [])
 
   return (

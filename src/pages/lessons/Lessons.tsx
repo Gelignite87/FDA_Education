@@ -5,27 +5,34 @@ import { Footer } from '../../components/footer/Footer.tsx'
 import { lessonsMap } from './lessons.data.ts'
 import { useParams } from 'react-router-dom'
 import styles from './Lessons.module.sass'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 
 export const Lessons = () => {
-  const { id } = useParams()
+  const { id } = useParams() // useParams вызывает повторный рендеринг при получении id
   const lessonsMap_id = id as keyof typeof lessonsMap
+  const BannerText = lessonsMap[lessonsMap_id]?.banner
   const ComponentToRender = lessonsMap[lessonsMap_id]?.component
 
+  //Код для компонента App
   const [count, setCount] = useState<number>(0)
-  const props1 = { count }
-  const props2 = { setCount }
+  const propsApp = { count, setCount }
+
+  //Код для компонента Timer
+  const [seconds, setSeconds] = useState<number>(0) // useState вызывает повторный рендеринг при изменении seconds
+  const [isRunning, setIsRunning] = useState<boolean>(false)
+  const timerRef = useRef<number | null>(null) // useRef создаёт объект с ключом current, который может хранить значение, но не вызывает повторного рендеринга компонента при изменении этого значения
+  const propsTimer = { seconds, setSeconds, isRunning, setIsRunning, timerRef }
 
   return (
     <>
-      <Banner text={lessonsMap[lessonsMap_id]?.banner || 'Page not found'} />
+      <Banner text={BannerText || 'Page not found'} />
       <div className={styles.lessons_flex}>
         <div className={styles.lessons_flexLeft}>
           <LeftMenu />
         </div>
         <div className={styles.lessons_flexRight}>
-          {lessonsMap[lessonsMap_id] ? (
-            <ComponentToRender props={{ ...props1, ...props2 }} />
+          {ComponentToRender ? (
+            <ComponentToRender props={{ ...propsApp, ...propsTimer }} />
           ) : (
             <NotFound />
           )}

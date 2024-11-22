@@ -10,6 +10,7 @@ import { useState } from 'react'
 export const Lessons = () => {
   const { id } = useParams()
   const lessonsMap_id = id as keyof typeof lessonsMap
+  const ComponentToRender = lessonsMap[lessonsMap_id]?.component
 
   const [count, setCount] = useState<number>(0)
   const props1 = { count }
@@ -24,7 +25,7 @@ export const Lessons = () => {
         </div>
         <div className={styles.lessons_flexRight}>
           {lessonsMap[lessonsMap_id] ? (
-            lessonsMap[lessonsMap_id].component({ ...props1, ...props2 })
+            <ComponentToRender props={{ ...props1, ...props2 }} />
           ) : (
             <NotFound />
           )}

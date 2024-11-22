@@ -3,7 +3,7 @@ import styles from './App.module.sass'
 import { AppProps } from './AppTypes'
 import viteLogo from '/vite.svg'
 
-export const App: React.FC<AppProps> = ({ count, setCount }) => {
+export const App: React.FC<AppProps> = ({ props: { count, setCount } }) => {
   return (
     <>
       <div>

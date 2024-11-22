@@ -1,4 +1,6 @@
 export type AppProps = {
-  count: number
-  setCount: React.Dispatch<React.SetStateAction<number>>
+  props: {
+    count: number
+    setCount: React.Dispatch<React.SetStateAction<number>>
+  }
 }

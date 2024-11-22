@@ -1,0 +1,15 @@
+@use '../../../_variables'
+
+.Array_text
+	> p
+		text-indent: 1.5em
+		margin: 0
+		> span
+			color: variables.$color-lovely-pink
+			background-color: #1a1a1a
+			&:hover
+				color: variables.$color-lovely-violet-light
+				filter: drop-shadow(0 0 0.8em #646cffcc)
+				cursor: pointer
+			&:active
+				color: variables.$color-lovely-pink

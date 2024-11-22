@@ -1,9 +1,11 @@
+import { StartPageViteLessonTypesProps } from './StartPageViteLessonTypes'
+import styles from './StartPageViteLesson.module.sass'
 import reactLogo from '../../../assets/react.svg'
-import styles from './App.module.sass'
-import { AppProps } from './AppTypes'
 import viteLogo from '/vite.svg'
 
-export const App: React.FC<AppProps> = ({ props: { count, setCount } }) => {
+export const StartPageViteLesson: React.FC<StartPageViteLessonTypesProps> = ({
+  props: { count, setCount },
+}) => {
   return (
     <>
       <div>

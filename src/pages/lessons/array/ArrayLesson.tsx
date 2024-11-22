@@ -1,6 +1,6 @@
-import styles from './ArrayComponent.module.sass'
+import styles from './ArrayLesson.module.sass'
 
-export const ArrayComponent: React.FC = () => {
+export const ArrayLesson: React.FC = () => {
   const handleCopy = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text)

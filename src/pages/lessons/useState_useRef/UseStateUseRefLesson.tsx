@@ -1,7 +1,7 @@
-import styles from './Timer.module.sass'
+import styles from './UseStateUseRefLesson.module.sass'
 import { useEffect } from 'react'
 
-export const Timer: React.FC<{
+export const UseStateUseRefLesson: React.FC<{
   props: {
     seconds: number
     setSeconds: React.Dispatch<React.SetStateAction<number>>

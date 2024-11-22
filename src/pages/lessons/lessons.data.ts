@@ -1,29 +1,29 @@
-import { ArrayComponent } from './array/ArrayComponent'
-import { Timer } from './useState_useRef/Timer'
-import { App } from './start_page_Vite/App'
+import { UseStateUseRefLesson } from './useState_useRef/UseStateUseRefLesson'
+import { StartPageViteLesson } from './start_page_Vite/StartPageViteLesson'
+import { ArrayLesson } from './array/ArrayLesson'
 
 export const lessonsMap = {
-  array: { banner: 'Массивы', component: ArrayComponent },
-  object: { banner: 'Объекты', component: ArrayComponent },
+  array: { banner: 'Массивы', component: ArrayLesson },
+  object: { banner: 'Объекты', component: ArrayLesson },
   ternary_operator: {
     banner: 'Тернарные операторы',
-    component: ArrayComponent,
+    component: ArrayLesson,
   },
-  prototype: { banner: 'Прототипы', component: ArrayComponent },
+  prototype: { banner: 'Прототипы', component: ArrayLesson },
   class: {
     banner: 'Классы JavaScript, введённые в ECMAScript 2015',
-    component: ArrayComponent,
+    component: ArrayLesson,
   },
   style: {
     banner: 'Основные стили Css и их аналоги в Tailwind',
-    component: ArrayComponent,
+    component: ArrayLesson,
   },
   start_page_Vite: {
     banner: 'Начальная страница Vite',
-    component: App,
+    component: StartPageViteLesson,
   },
   useState_useRef: {
     banner: 'Xуки React useState и useRef на примере таймера',
-    component: Timer,
+    component: UseStateUseRefLesson,
   },
 }

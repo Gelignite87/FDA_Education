@@ -110,6 +110,31 @@ export const Timer = () => {
                 timerRef.current
               </span>
             </p>
+            <p>
+              Суть таймера в следующем: каждую 0.1 секунду функция&nbsp;
+              <span
+                onClick={() =>
+                  handleCopy('setInterval(() => setSeconds(s => s + 0.1), 100)')
+                }
+              >
+                setInterval(() =&gt; setSeconds(s =&gt; s + 0.1), 100)
+              </span>
+              &nbsp;изменяет переменную seconds через функцию setSeconds().
+              Функция setInterval() возвращает уникальный идентификатор, который
+              можно внести в clearInterval() и остановить setInterval(). Куда
+              сохранить уникальный идентификатор? Если сохранять его в let, то
+              каждый раз при повторном рендеринге let будет создаваться заново и
+              уникальный идентификатор будет потерян. Запишем его в&nbsp;
+              <span onClick={() => handleCopy('timerRef.current')}>
+                timerRef.current
+              </span>
+              &nbsp;и он не будет изменятся при повторном рендеринге компонента.
+              Также в отличие от useState() запись в&nbsp;
+              <span onClick={() => handleCopy('timerRef.current')}>
+                timerRef.current
+              </span>
+              &nbsp; не вызывает повторный рендеринг компонента.
+            </p>
           </div>
         </div>
       </div>

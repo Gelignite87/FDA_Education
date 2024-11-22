@@ -6,18 +6,6 @@ export const Footer = () => {
   const [logo, setLogo] = useState<string | null>(null)
 
   useEffect(() => {
-    // Динамический вызов картинки через асинхронную функцию
-    // const loadLogo = async () => {
-    //   try {
-    //     const module = await import('../../assets/FDA_logo.svg')
-    //     setLogo(module.default)
-    //   } catch (error) {
-    //     console.error('Ошибка загрузки логотипа:', error)
-    //   }
-    // }
-    // loadLogo()
-
-    // Динамический вызов картинки через .then(()=>{})
     import('../../assets/FDA_logo.svg')
       .then(module => {
         setLogo(module.default)
@@ -30,7 +18,20 @@ export const Footer = () => {
   return (
     <>
       <div className={styles.footer}>
-        <div>Контактная информация</div>
+        <nav>
+          <ul className={styles.ul_Footer}>
+            Контактная информация:
+            <li>
+              Разработка и дизайн:&nbsp;<span>Фомин Дмитрий Александрович</span>
+            </li>
+            <li>
+              Электронная почта:&nbsp;<span>railgun87@rambler.ru</span>
+            </li>
+            <li>
+              Телефон:&nbsp;<span>8 (914) 081-93-27</span>
+            </li>
+          </ul>
+        </nav>
         <div></div>
         <Link to="/">
           {logo && (

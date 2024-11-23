@@ -2,7 +2,7 @@ import { lessonsMap } from '../../pages/lessons/lessons.data'
 import styles from './LeftMenu.module.sass'
 import { Link } from 'react-router-dom'
 
-export const LeftMenu = () => {
+export const LeftMenu: React.FC = () => {
   const lessonsArray = Object.entries(lessonsMap).map(([key, { banner }]) => ({
     key,
     banner,

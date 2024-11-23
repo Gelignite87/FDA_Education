@@ -2,7 +2,7 @@ import { NotFound } from '../components/not-found/NotFound.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { routes } from './routes.data.ts'
 
-export const MyRoutes = () => {
+export const MyRoutes: React.FC = () => {
   return (
     <BrowserRouter
       future={{ v7_relativeSplatPath: true, v7_startTransition: true }}

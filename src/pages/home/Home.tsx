@@ -1,6 +1,6 @@
 import { Banner } from '../../components/banner/Banner.tsx'
 
-export const Home = () => {
+export const Home: React.FC = () => {
   return (
     <>
       <Banner text="Приветствую учащихся!" />

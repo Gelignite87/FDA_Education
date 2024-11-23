@@ -1,25 +1,11 @@
+import { UseStateUseRefLessonTypes } from './UseStateUseRefLessonTypes'
 import styles from './UseStateUseRefLesson.module.sass'
+import { copyToClipboard } from '../../../utils/utils'
 import { useEffect } from 'react'
 
-export const UseStateUseRefLesson: React.FC<{
-  props: {
-    seconds: number
-    setSeconds: React.Dispatch<React.SetStateAction<number>>
-    isRunning: boolean
-    setIsRunning: React.Dispatch<React.SetStateAction<boolean>>
-    timerRef: React.MutableRefObject<number | null>
-  }
-}> = ({
+export const UseStateUseRefLesson: React.FC<UseStateUseRefLessonTypes> = ({
   props: { seconds, setSeconds, isRunning, setIsRunning, timerRef },
 }) => {
-  const handleCopy = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text)
-    } catch (error) {
-      console.error('Ошибка при копировании: ', error)
-    }
-  }
-
   const startTimer = () => {
     if (!timerRef.current) {
       timerRef.current = setInterval(() => setSeconds(s => s + 0.1), 100) // Записываем в timerRef.current уникальный идентификатор функции setInterval
@@ -77,7 +63,9 @@ export const UseStateUseRefLesson: React.FC<{
           переменной. Записывается как &nbsp;
           <span
             onClick={() =>
-              handleCopy('const [seconds, setSeconds] = useState<number>(0)')
+              copyToClipboard(
+                'const [seconds, setSeconds] = useState<number>(0)',
+              )
             }
           >
             const [seconds, setSeconds] = useState&lt;number&gt;(0)
@@ -89,13 +77,13 @@ export const UseStateUseRefLesson: React.FC<{
           изменении этого значения. Записывается как &nbsp;
           <span
             onClick={() =>
-              handleCopy('const timerRef = useRef<number | null>(null)')
+              copyToClipboard('const timerRef = useRef<number | null>(null)')
             }
           >
             const timerRef = useRef&lt;number | null&gt;(null)
           </span>
           .&nbsp; В дальнейшем запись происходит в переменную&nbsp;
-          <span onClick={() => handleCopy('timerRef.current')}>
+          <span onClick={() => copyToClipboard('timerRef.current')}>
             timerRef.current
           </span>
         </p>
@@ -103,7 +91,9 @@ export const UseStateUseRefLesson: React.FC<{
           Суть таймера в следующем: каждую 0.1 секунду функция&nbsp;
           <span
             onClick={() =>
-              handleCopy('setInterval(() => setSeconds(s => s + 0.1), 100)')
+              copyToClipboard(
+                'setInterval(() => setSeconds(s => s + 0.1), 100)',
+              )
             }
           >
             setInterval(() =&gt; setSeconds(s =&gt; s + 0.1), 100)
@@ -114,12 +104,12 @@ export const UseStateUseRefLesson: React.FC<{
           уникальный идентификатор? Если сохранять его в let, то каждый раз при
           повторном рендеринге let будет создаваться заново и уникальный
           идентификатор будет потерян. Запишем его в&nbsp;
-          <span onClick={() => handleCopy('timerRef.current')}>
+          <span onClick={() => copyToClipboard('timerRef.current')}>
             timerRef.current
           </span>
           &nbsp;и он не будет изменятся при повторном рендеринге компонента.
           Также в отличие от useState() запись в&nbsp;
-          <span onClick={() => handleCopy('timerRef.current')}>
+          <span onClick={() => copyToClipboard('timerRef.current')}>
             timerRef.current
           </span>
           &nbsp; не вызывает повторный рендеринг компонента.

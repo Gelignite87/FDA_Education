@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from './Footer.module.sass'
 import { Link } from 'react-router-dom'
 
-export const Footer = () => {
+export const Footer: React.FC = () => {
   const [logo, setLogo] = useState<string | null>(null)
 
   useEffect(() => {

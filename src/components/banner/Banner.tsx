@@ -1,6 +1,6 @@
 import styles from './Banner.module.sass'
 
-export const Banner = ({ text = 'Banner' }) => {
+export const Banner: React.FC<{ text: string }> = ({ text = 'Banner' }) => {
   return (
     <>
       <div className={styles['background-banner']}>

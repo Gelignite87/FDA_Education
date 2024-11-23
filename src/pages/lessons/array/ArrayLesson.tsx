@@ -1,13 +1,7 @@
+import { copyToClipboard } from '../../../utils/utils'
 import styles from './ArrayLesson.module.sass'
 
 export const ArrayLesson: React.FC = () => {
-  const handleCopy = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text)
-    } catch (error) {
-      console.error('Ошибка при копировании: ', error)
-    }
-  }
   return (
     <>
       <div className={styles.Array_text}>
@@ -20,7 +14,9 @@ export const ArrayLesson: React.FC = () => {
         <p>
           <span
             onClick={() =>
-              handleCopy('const [seconds, setSeconds] = useState<number>(0)')
+              copyToClipboard(
+                'const [seconds, setSeconds] = useState<number>(0)',
+              )
             }
           >
             const [seconds, setSeconds] = useState&lt;number&gt;(0)

@@ -10,7 +10,7 @@ import { useRef, useState } from 'react'
 export const Lessons: React.FC = () => {
   const { id } = useParams()
   const lessonsMap_id = id as keyof typeof lessonsMap
-  const BannerText = lessonsMap[lessonsMap_id]?.banner
+  const bannerText = lessonsMap[lessonsMap_id]?.banner
   const ComponentToRender = lessonsMap[lessonsMap_id]?.component
 
   //Код для компонента StartPageViteLesson.tsx
@@ -25,7 +25,7 @@ export const Lessons: React.FC = () => {
 
   return (
     <>
-      <Banner text={BannerText || 'Page not found'} />
+      <Banner text={bannerText || 'Page not found'} />
       <div className={styles.lessons_flex}>
         <div className={styles.lessons_flexLeft}>
           <LeftMenu />

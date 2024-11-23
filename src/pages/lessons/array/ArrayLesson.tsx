@@ -14,23 +14,41 @@ export const ArrayLesson: React.FC = () => {
         <p>
           <span
             onClick={() =>
-              copyToClipboard('array.forEach(data =>{data.price * 10})')
+              copyToClipboard(
+                'array.forEach(data =>{return console.log(data.price * 10)})',
+              )
             }
           >
-            array.forEach(data =&gt; &#123;data.price * 10&#125;)
+            array.forEach(data =&gt; &#123;return console.log(data.price *
+            10)&#125;)
           </span>
-          &nbsp; выполняем функцию с каждым элементом массива.
+          &nbsp; выполняет функцию с каждым элементом массива, но не изменяет
+          сам массив. Возвращает undefined.
         </p>
         <p>
           <span
             onClick={() =>
-              copyToClipboard('for (let data of array) {data.price * 10})')
+              copyToClipboard(
+                'let arr = array.map(data => {return data.price * 10})',
+              )
             }
           >
-            for (let data of array) &#123;data.price * 10&#125;)
+            let arr = array.map(data =&gt; &#123;return data.price * 10&#125;)
           </span>
-          &nbsp; повторяет forEach, также работает с элементами NoteList,
-          полученными через querySelectorAll.
+          &nbsp; собираем новый массив c преобразованными данными.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard(
+                'for (let data of array) {return data.price * 10})',
+              )
+            }
+          >
+            for (let data of array) &#123;return data.price * 10&#125;)
+          </span>
+          &nbsp; повторяет forEach. Работает с элементами NoteList, полученными
+          через querySelectorAll.
         </p>
         <p>
           <span onClick={() => copyToClipboard('array.push(obj)')}>
@@ -57,16 +75,6 @@ export const ArrayLesson: React.FC = () => {
           &nbsp; удаляет первый элемент из массива и возвращает его значение.
         </p>
         <p>
-          <span
-            onClick={() =>
-              copyToClipboard('let arr = array.map(data => {data.price * 10})')
-            }
-          >
-            let arr = array.map(data =&gt; &#123;data.price * 10&#125;)
-          </span>
-          &nbsp; собираем новый массив.
-        </p>
-        <p>
           <span onClick={() => copyToClipboard('let arr = array.slice(1, 4)')}>
             let arr = array.slice(1, 4)
           </span>
@@ -89,12 +97,22 @@ export const ArrayLesson: React.FC = () => {
               copyToClipboard('array.splice(array.indexOf(arr), 1)')
             }
           >
-            array.splice(array.indexOf(arr), 1);
+            array.splice(array.indexOf(arr), 1)
           </span>
           &nbsp; комбинация для удаления конкретного элемента из array (не
           работает если arr является элементом другого массива, т.к. ссылки
           отличаются, в таком случае предварительно ищем элемент в нужном
           массиве через .find()).
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard('array.findIndex((item) => item > 10)')
+            }
+          >
+            array.findIndex((item) =&gt; item &gt; 10)
+          </span>
+          &nbsp; возвращает индекс первого элемента, который больше 10.
         </p>
         <p>
           <span
@@ -131,13 +149,13 @@ export const ArrayLesson: React.FC = () => {
             let arr = array.reduce((accum, data) =&gt; accum += data.price, 0)
           </span>
           &nbsp; при каждой итерации осуществляет взаимодействие результата с
-          элементом массива, в первой итерации результат = 0.
+          элементом массива, в первой итерации accum = 0.
         </p>
         <p>
           <span onClick={() => copyToClipboard('array.includes(arr)')}>
             array.includes(arr)
           </span>
-          &nbsp; true или false включает массив элемент arr или нет.
+          &nbsp; возвращает true или false. Включает массив элемент arr или нет.
         </p>
         <p>
           <span
@@ -147,7 +165,19 @@ export const ArrayLesson: React.FC = () => {
           >
             array.every(data =&gt; data.price &gt; 100)
           </span>
-          &nbsp; true или false проверка всех элементов массива.
+          &nbsp; возвращает true или false. Проверяет что все элементы массива
+          больше 100.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard('array.some(data => data.price > 100)')
+            }
+          >
+            array.some(data =&gt; data.price &gt; 100)
+          </span>
+          &nbsp; возвращает true или false. Проверяет что хотя бы один элемент
+          массива больше 100.
         </p>
         <p>
           <span onClick={() => copyToClipboard('array.flat(2)')}>
@@ -155,12 +185,6 @@ export const ArrayLesson: React.FC = () => {
           </span>
           &nbsp; поднимает уровни вложенности [1, 2, [3, 4, [5, 6]]] =&gt; [1,
           2, 3, 4, 5, 6].
-        </p>
-        <p>
-          <span onClick={() => copyToClipboard("array.join('')")}>
-            array.join(‘’)
-          </span>
-          &nbsp; объединяет все элементы массива в строку.
         </p>
         <p>
           <span onClick={() => copyToClipboard('array.length')}>
@@ -171,12 +195,15 @@ export const ArrayLesson: React.FC = () => {
         <p>
           <span
             onClick={() =>
-              copyToClipboard('this.arr = [...array, ...this.arr, ...arr]')
+              copyToClipboard(
+                'const array = [...firstArray, ...secondArray, ...firstArray]',
+              )
             }
           >
-            this.arr = [...array, …this.arr, …arr]
+            const array = [...firstArray, ...secondArray, ...firstArray]
           </span>
-          &nbsp; spread syntax объединяет массивы в нужном порядке.
+          &nbsp; Spread Syntax создает новый массив, объединяя массивы в нужном
+          порядке.
         </p>
         <p>
           <span onClick={() => copyToClipboard("'text'.split()")}>
@@ -189,8 +216,8 @@ export const ArrayLesson: React.FC = () => {
           <span onClick={() => copyToClipboard("'text'.split()")}>
             'text'.split('')
           </span>
-          &nbsp; cтрока разбивается на массив отдельных символов ['t', 'e', 'x',
-          't'].
+          &nbsp; cтрока разбивается на массив отдельных символов: ['t', 'e',
+          'x', 't'].
         </p>
         <p>
           <span
@@ -202,6 +229,59 @@ export const ArrayLesson: React.FC = () => {
           </span>
           &nbsp; cтрока разбивается по символу _ ['example', 'of', 'text',
           'division'].
+        </p>
+        <p>
+          <span onClick={() => copyToClipboard("array.join('_')")}>
+            array.join('_')
+          </span>
+          &nbsp; cобирает строку из элементов массива, разделяя их символом _.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard("['banana', 'apple', 'cherry', 'date'].sort()'")
+            }
+          >
+            ['banana', 'apple', 'cherry', 'date'].sort()
+          </span>
+          &nbsp; сортировка по алфавиту: ['apple', 'banana', 'cherry', 'date'].
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard(
+                'array.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))',
+              )
+            }
+          >
+            array.sort((a, b) =&gt;
+            a.toLowerCase().localeCompare(b.toLowerCase()))
+          </span>
+          &nbsp; cортировка по алфавиту с учетом особенностей локализации и
+          игнорированием регистра.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard(
+                'array.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))',
+              )
+            }
+          >
+            array.sort((a, b) =&gt;
+            a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+          </span>
+          &nbsp; cортировка объектов в массиве по полю name.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard('[10, 2, 5, 3, 1].sort((a, b) => a - b)')
+            }
+          >
+            [10, 2, 5, 3, 1].sort((a, b) =&gt; a - b)
+          </span>
+          &nbsp; cортировка чисел по возрастанию: [1, 2, 3, 5, 10].
         </p>
       </div>
     </>

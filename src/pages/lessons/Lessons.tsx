@@ -25,17 +25,19 @@ export const Lessons: React.FC = () => {
 
   return (
     <>
-      <Banner text={bannerText || 'Page not found'} />
-      <div className={styles.lessons_flex}>
-        <div className={styles.lessons_flexLeft}>
-          <LeftMenu />
-        </div>
-        <div className={styles.lessons_flexRight}>
-          {ComponentToRender ? (
-            <ComponentToRender props={{ ...propsApp, ...propsTimer }} />
-          ) : (
-            <NotFound />
-          )}
+      <div>
+        <Banner text={bannerText || 'Page not found'} />
+        <div className={styles.lessons_flex}>
+          <div className={styles.lessons_flexLeft}>
+            <LeftMenu />
+          </div>
+          <div className={styles.lessons_flexRight}>
+            {ComponentToRender ? (
+              <ComponentToRender props={{ ...propsApp, ...propsTimer }} />
+            ) : (
+              <NotFound />
+            )}
+          </div>
         </div>
       </div>
       <Footer />

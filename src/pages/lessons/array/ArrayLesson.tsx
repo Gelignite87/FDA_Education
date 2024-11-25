@@ -14,6 +14,56 @@ export const ArrayLesson: React.FC = () => {
         <p>
           <span
             onClick={() =>
+              copyToClipboard('const numbers = new Array(1, 2, 3, 4, 5)')
+            }
+          >
+            const numbers = new Array(1, 2, 3, 4, 5)
+          </span>
+          &nbsp; создание массива с помощью конструктора Array.&nbsp;
+          <span
+            onClick={() =>
+              copyToClipboard('const numbers = Array(1, 2, 3, 4, 5)')
+            }
+          >
+            const numbers = Array(1, 2, 3, 4, 5)
+          </span>
+          &nbsp; аналогичная запись.
+        </p>
+        <p>
+          <span
+            onClick={() => copyToClipboard('const numbers = Array(10).fill(1)')}
+          >
+            const numbers = Array(10).fill(1)
+          </span>
+          &nbsp; создаём массив с 10 пустыми ячейками и заполняем их значением
+          1.
+        </p>
+        <p>
+          <span
+            onClick={() => copyToClipboard('const myArray = Array.of(1, 2, 3)')}
+          >
+            const myArray = Array.of(1, 2, 3)
+          </span>
+          &nbsp; метод создаёт массив из аргументов, даже если это один элемент.
+          В отличие от new Array, он не интерпретирует число как длину массива.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard(
+                'const fromRange = Array.from({ length: 5 }, (_, i) => i + 1)',
+              )
+            }
+          >
+            const fromRange = Array.from(&#123; length: 5 &#125;, (_, i) =&gt; i
+            + 1)
+          </span>
+          &nbsp; метод позволяет создать массив из итерируемых объектов, таких
+          как строки или коллекции.
+        </p>
+        <p>
+          <span
+            onClick={() =>
               copyToClipboard(
                 'array.forEach(data =>{return console.log(data.price * 10)})',
               )

@@ -1,9 +1,14 @@
 import { UseStateUseRefLesson } from './useState_useRef/UseStateUseRefLesson'
 import { StartPageViteLesson } from './start_page_Vite/StartPageViteLesson'
+import { ConstructorLesson } from './constructor/ConstructorLesson'
 import { ArrayLesson } from './array/ArrayLesson'
 
 export const lessonsMap = {
   array: { banner: 'Массивы', component: ArrayLesson },
+  constructor: {
+    banner: 'Конструкторы',
+    component: ConstructorLesson,
+  },
   object: { banner: 'Объекты', component: ArrayLesson },
   ternary_operator: {
     banner: 'Тернарные операторы',

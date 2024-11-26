@@ -210,6 +210,7 @@ const person2 = new Person("Bob", 30)`,
             <br />
             const person2 = new Person("Bob", 30)
           </div>
+          <b>&nbsp;&nbsp;</b>
           <p>
             Метод можно добавить напрямую в объект, например в this.greet, но
             запись в прототип имеет преимущество. Методы в прототипе сохраняются
@@ -221,11 +222,19 @@ const person2 = new Person("Bob", 30)`,
             объект (в строгом режиме — на undefined).
             <br />
             <br />
-            console.log(person1.greet()) &nbsp; // "Hi, my name is Alice and I'm
-            25 years old."
+            <span
+              onClick={() => copyToClipboard('console.log(person1.greet())')}
+            >
+              console.log(person1.greet())
+            </span>
+            &nbsp; // "Hi, my name is Alice and I'm 25 years old."
             <br />
-            console.log(person2.greet()) &nbsp; // "Hi, my name is Bob and I'm
-            30 years old."
+            <span
+              onClick={() => copyToClipboard('console.log(person2.greet())')}
+            >
+              console.log(person2.greet())
+            </span>
+            &nbsp; // "Hi, my name is Bob and I'm 30 years old."
           </p>
         </div>
         <br />
@@ -274,7 +283,11 @@ const person1 = new Person("Alice", 25)`,
             <br />
             const person2 = new Person("Bob", 30)
           </div>
-          <p>То же самое что в примере выше, но с использованием классов.</p>
+          <b>&nbsp;&nbsp;</b>
+          <p>
+            <br />
+            То же самое что в примере выше, но с использованием классов.
+          </p>
         </div>
       </div>
     </>

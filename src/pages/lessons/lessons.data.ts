@@ -23,9 +23,17 @@ export const lessonsMap = {
     banner: 'Тернарные операторы',
     component: TernaryOperatorLesson,
   },
+  destructuring: {
+    banner: 'Деструктуризация',
+    component: TernaryOperatorLesson,
+  },
   prototype: { banner: 'Прототипы', component: UseStateUseRefLesson },
   class: {
     banner: 'Классы JavaScript, введённые в ECMAScript 2015',
+    component: UseStateUseRefLesson,
+  },
+  interaction_DOM: {
+    banner: 'Взаимодействие с DOM',
     component: UseStateUseRefLesson,
   },
   style: {

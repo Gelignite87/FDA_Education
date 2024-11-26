@@ -6,175 +6,351 @@ export const ObjectLesson: React.FC = () => {
     <>
       <div className={styles.Object_text}>
         <p>
-          <i>Функция</i> — это объект высшего порядка, представляющий блок кода,
-          который можно вызывать и повторно использовать. Функция принимает
-          аргументы, выполняет операции с ними и может возвращать результат. Это
-          один из основных строительных блоков для организации и повторного
-          использования кода.
+          <i>Объекты</i> — это собрание пар "ключ-значение" или ассоциативные
+          массивы. Они представляют собой наиболее фундаментальный тип данных,
+          который используется для хранения и управления более сложными
+          структурами данных. Объекты могут содержать данные (свойства) и
+          функциональность (методы). Ключами всегда являются строки или символы,
+          а значения могут быть любого типа, включая другие объекты, массивы или
+          функции.
         </p>
         <br />
+        <p>Создание объектов:</p>
         <p>
+          &nbsp;&nbsp;1 Через литерал объекта&nbsp;
           <span
             onClick={() =>
-              copyToClipboard('function greet(name) {return `Hello, ${name}!`}')
+              copyToClipboard("const obj = { name:'Alice', age:30 }")
             }
           >
-            function greet(name) &#123;return `Hello,
-            &#36;&#123;name&#125;!`&#125;
+            const obj = &#123; name:'Alice', age:30 &#125;
           </span>
-          &nbsp; объявление функции (Function Declarations). Функцию-объявление
-          можно вызывать до определения, благодаря "поднятию" (hoisting).
         </p>
         <p>
+          &nbsp;&nbsp;2 Через конструктор&nbsp;
           <span
             onClick={() =>
-              copyToClipboard(
-                'const greet = function(name) {return `Hello, ${name}!`}',
-              )
+              copyToClipboard("const obj = new Object({ key: 'value' })")
             }
           >
-            const greet = function(name) &#123;return `Hello,
-            &#36;&#123;name&#125;!`&#125;
+            const obj = new Object(&#123; key: 'value' &#125;)
           </span>
-          &nbsp; выражение функции (Function Expressions). Функция-выражение
-          может быть анонимной (без имени) и сохраняться в переменную.
         </p>
         <p>
+          &nbsp;&nbsp;3 Через Object.create()&nbsp;
           <span
             onClick={() =>
-              copyToClipboard('const greet = name => `Hello, ${name}!`')
+              copyToClipboard("const obj = Object.create({ key: 'value' })")
             }
           >
-            const greet = name =&gt; `Hello, &#36;&#123;name&#125;!`
+            const obj = Object.create(&#123; key: 'value' &#125;)
           </span>
-          &nbsp; стрелочная функция (Arrow Function), не имеет собственного
-          значения this. Если аргумент один, то ( ) не нужны. Если кроме return
-          других действий нет return и &#123; &#125; можно не писать.
         </p>
-        <p>
-          Функции высшего порядка принимают другие функции в качестве аргументов
-          или возвращают их.
-        </p>
-        <p>
-          Функция в JavaScript является объектом, и у неё есть свойства, такие
-          как .name и .length (количество параметров).
-        </p>
-        <p>
-          Функции-объявления (Function Declarations) можно вызывать до
-          определения, благодаря "поднятию" (hoisting). Функции, записываемые в
-          переменную, можно вызвать только после записи.
-        </p>
-        <br />
-        <p>
-          Bind, Call, и Apply — это методы, которые позволяют привязывать
-          контекст выполнения функции (значение this) или вызывать функцию с
-          указанным контекстом. Они часто используются в JavaScript для
-          управления контекстом, особенно при работе с объектами или в
-          функциональном программировании.
-        </p>
+        <p>&nbsp;&nbsp;4 Через класс (ES6)&nbsp;</p>
         <div>
           <div
             onClick={() =>
               copyToClipboard(
-                `function describeAnimal(arg1, arg2, arg3, arg4) {
-  return \`\${arg1} \${arg2} \${arg3} \${arg4} \${this.animal}\`
+                `class Person {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+  }
+
+  greet() {
+    return \`Hi, my name is \${this.name} and I'm \${this.age} years old.\`
+  }
 }
 
-const cat = { animal: 'cat' }
-const describeCat = describeAnimal.bind(cat, 'brown', 'tabby')`,
+const person1 = new Person("Alice", 25)`,
               )
             }
           >
-            function describeAnimal(arg1, arg2, arg3, arg4) &#123;
+            class Person &#123;
             <br />
-            &nbsp;&nbsp;return `&#36;&#123;arg1&#125; &#36;&#123;arg2&#125;
-            &#36;&#123;arg3&#125; &#36;&#123;arg4&#125;
-            &#36;&#123;this.animal&#125;`
+            &nbsp;&nbsp;constructor(name, age) &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;this.name = name
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;this.age = age
             <br />
             &#125;
             <br />
-            const cat = &#123; animal: 'cat' &#125;
             <br />
-            const describeCat = describeAnimal.bind(cat, 'brown', 'tabby')
+            &nbsp;&nbsp;greet() &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;return `Hi, my name is
+            &#36;&#123;this.name&#125; and I'm &#36;&#123;this.age&#125; years
+            old.`
+            <br />
+            &nbsp;&nbsp;&#125;
+            <br />
+            &#125;
+            <br />
+            <br />
+            const person1 = new Person("Alice", 25)
+            <br />
+            const person2 = new Person("Bob", 30)
           </div>
           <b>&nbsp;&nbsp;</b>
           <p>
-            Bind создаёт новую функцию с привязанным значением this и
-            (опционально) предустановленными аргументами. Возвращает новую
-            функцию. Не вызывает функцию сразу, а только закрепляет this.
             <br />
-            <span
-              onClick={() =>
-                copyToClipboard("console.log(describeCat( 'fluffy', 'fat' ))")
-              }
-            >
-              console.log(describeCat( 'fluffy', 'fat' ))
-            </span>
-            &nbsp; // "brown tabby fluffy fat cat"
+            То же самое что в примере выше, но с использованием классов.
           </p>
         </div>
-        <br />
+        <p>
+          &nbsp;&nbsp;5 Через функции-конструкторы (устаревший метод, но всё ещё
+          используется)&nbsp;
+        </p>
         <div>
           <div
             onClick={() =>
               copyToClipboard(
-                `function describeAnimal(arg1, arg2, arg3, arg4) {
-  return \`\${arg1} \${arg2} \${arg3} \${arg4} \${this.animal}\`
+                `function Person(name, age) {
+  this.name = name
+  this.age = age
 }
 
-const cat = { animal: 'cat' }`,
+Person.prototype.greet = function() {
+  return \`Hi, my name is \${this.name} and I'm \${this.age} years old.\`
+}
+
+const person1 = new Person("Alice", 25)
+const person2 = new Person("Bob", 30)`,
               )
             }
           >
-            function describeAnimal(arg1, arg2, arg3, arg4) &#123;
+            function Person(name, age) &#123;
             <br />
-            &nbsp;&nbsp;return `&#36;&#123;arg1&#125; &#36;&#123;arg2&#125;
-            &#36;&#123;arg3&#125; &#36;&#123;arg4&#125;
-            &#36;&#123;this.animal&#125;`
+            &nbsp;&nbsp;this.name = name
+            <br />
+            &nbsp;&nbsp;this.age = age
             <br />
             &#125;
             <br />
-            const cat = &#123; animal: 'cat' &#125;
+            <br />
+            Person.prototype.greet = function() &#123;
+            <br />
+            &nbsp;&nbsp;return `Hi, my name is &#36;&#123;this.name&#125; and
+            I'm &#36;&#123;this.age&#125; years old.`
+            <br />
+            &#125;
+            <br />
+            <br />
+            const person1 = new Person("Alice", 25)
+            <br />
+            const person2 = new Person("Bob", 30)
           </div>
           <b>&nbsp;&nbsp;</b>
-          <div>
-            <p>
-              Call вызывает функцию с указанным значением this и передаёт
-              аргументы через запятую. Вызывает функцию немедленно. Позволяет
-              передать this и аргументы через запятую.
-              <br />
-              <span
-                onClick={() =>
-                  copyToClipboard(
-                    "console.log(describeAnimal.call( cat, 'brown', 'tabby','fluffy', 'fat' ))",
-                  )
-                }
-              >
-                console.log(describeAnimal.call( cat, 'brown', 'tabby',
-                'fluffy', 'fat' ))
-              </span>
-              &nbsp; // "brown tabby fluffy fat cat"
-              <br />
-            </p>
-            <p>
-              Apply похож на call, но принимает аргументы в виде массива.
-              Вызывает функцию немедленно. Удобен, когда аргументы уже
-              представлены в массиве.
-              <br />
-              <span
-                onClick={() =>
-                  copyToClipboard(
-                    "console.log(describeAnimal.apply( cat, ['brown', 'tabby','fluffy', 'fat'] ))",
-                  )
-                }
-              >
-                console.log(describeAnimal.apply( cat, ['brown', 'tabby',
-                'fluffy', 'fat'] ))
-              </span>
-              &nbsp; // "brown tabby fluffy fat cat"
-            </p>
-          </div>
+          <p>
+            Метод можно добавить напрямую в объект, например в this.greet, но
+            запись в прототип имеет преимущество. Методы в прототипе сохраняются
+            в одном месте и не копируются для каждого объекта, что экономит
+            память.
+            <br />
+            <br />
+            Без new, this внутри конструктора будет ссылаться на глобальный
+            объект (в строгом режиме — на undefined).
+            <br />
+            <br />
+            <span
+              onClick={() => copyToClipboard('console.log(person1.greet())')}
+            >
+              console.log(person1.greet())
+            </span>
+            &nbsp; // "Hi, my name is Alice and I'm 25 years old."
+            <br />
+            <span
+              onClick={() => copyToClipboard('console.log(person2.greet())')}
+            >
+              console.log(person2.greet())
+            </span>
+            &nbsp; // "Hi, my name is Bob and I'm 30 years old."
+          </p>
         </div>
+        <br />
+        <p>Свойства объекта:</p>
+        <p>
+          &nbsp;&nbsp;1 Объявление свойства&nbsp;
+          <span onClick={() => copyToClipboard("const obj = { key: 'value' }")}>
+            const obj = &#123; key: 'value' &#125;
+          </span>
+        </p>
+        <p>&nbsp;&nbsp;2 Доступ к свойству&nbsp; </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span onClick={() => copyToClipboard('console.log(obj.key)')}>
+            console.log(obj.key)
+          </span>
+          &nbsp;через точечную нотацию&nbsp;
+        </p>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span onClick={() => copyToClipboard("console.log(obj['key'])")}>
+            console.log(obj['key'])
+          </span>
+          &nbsp;через квадратные скобки.
+        </p>
+        <p>
+          &nbsp;&nbsp;3 Динамическое добавление свойства&nbsp;
+          <span onClick={() => copyToClipboard("obj.newKey = 'newValue'")}>
+            obj.newKey = 'newValue'
+          </span>
+        </p>
+        <p>
+          &nbsp;&nbsp;4 Удаление свойства&nbsp;
+          <span onClick={() => copyToClipboard('delete obj.key')}>
+            delete obj.key
+          </span>
+        </p>
+        <p>Методы объекта:</p>
+        <p>
+          &nbsp;&nbsp;
+          <span
+            onClick={() =>
+              copyToClipboard(
+                'const calculator = {add: function(a, b) {return a + b}}',
+              )
+            }
+          >
+            const calculator = &#123;add: function(a, b) &#123;return a +
+            b&#125;&#125;
+          </span>
+          &nbsp;методы - это свойства объекта, значения которых являются
+          функциями.
+        </p>
+        <p>
+          &nbsp;&nbsp;
+          <span
+            onClick={() =>
+              copyToClipboard('const calculator = {add(a, b) {return a + b}}')
+            }
+          >
+            const calculator = &#123;add(a, b) &#123;return a + b&#125;&#125;
+          </span>
+          &nbsp;сокращенная запись.
+        </p>
+        <br />
+        <p>Перебор свойств объекта:</p>
+        <div>
+          <p>
+            &nbsp;&nbsp;1 for...in Перебирает все перечисляемые свойства,
+            включая свойства прототипа
+          </p>
+          <div
+            onClick={() =>
+              copyToClipboard(`for (let key in obj) {
+  console.log(key, obj[key])
+}`)
+            }
+          >
+            for (let key in obj) &#123;
+            <br />
+            &nbsp;&nbsp;console.log(key, obj[key])
+            <br />
+            &#125;
+          </div>
+          <b>&nbsp;</b>
+        </div>
+        <p>
+          &nbsp;&nbsp;2 Object.keys() Возвращает массив собственных ключей
+          объекта&nbsp;
+          <span
+            onClick={() => copyToClipboard('console.log(Object.keys(obj))')}
+          >
+            console.log(Object.keys(obj))
+          </span>
+        </p>
+        <p>
+          &nbsp;&nbsp;3 Object.values() Возвращает массив значений объекта&nbsp;
+          <span
+            onClick={() => copyToClipboard('console.log(Object.values(obj))')}
+          >
+            console.log(Object.values(obj))
+          </span>
+        </p>
+        <p>
+          &nbsp;&nbsp;4 Object.entries() Возвращает массив пар [ключ,
+          значение]&nbsp;
+          <span
+            onClick={() => copyToClipboard('console.log(Object.entries(obj))')}
+          >
+            console.log(Object.entries(obj))
+          </span>
+        </p>
+        <br />
+        <p>Копирование объектов:</p>
+        <p>
+          &nbsp;&nbsp;1 Поверхностное копирование c использованием
+          спред-оператора&nbsp;
+          <span onClick={() => copyToClipboard('const copy = { ...original }')}>
+            const copy = &#123; ...original &#125;
+          </span>
+        </p>
+        <p>
+          &nbsp;&nbsp;2 Поверхностное копирование c помощью
+          Object.assign()&nbsp;
+          <span
+            onClick={() =>
+              copyToClipboard('const copy = Object.assign( {}, original )')
+            }
+          >
+            const copy = Object.assign( &#123; &#125;, original )
+          </span>
+        </p>
+        <p>
+          &nbsp;&nbsp;3 Глубокое копирование с использованием JSON()&nbsp;
+          <span
+            onClick={() =>
+              copyToClipboard(
+                'const deepCopy = JSON.parse(JSON.stringify(original))',
+              )
+            }
+          >
+            const deepCopy = JSON.parse(JSON.stringify(original))
+          </span>
+        </p>
+        <br />
+        <p>
+          Наследование и прототипы. Каждый объект в JavaScript имеет скрытое
+          свойство [[Prototype]], которое может быть доступно через
+          Object.getPrototypeOf(obj) или __proto__.
+        </p>
+        <br />
+        <p>Методы работы с объектами:</p>
+        <p>
+          &nbsp;&nbsp;1 Object.assign() копирует свойства одного или нескольких
+          объектов в целевой объект&nbsp;
+          <span
+            onClick={() =>
+              copyToClipboard('Object.assign(target, { a: 1 }, { b: 2 })')
+            }
+          >
+            Object.assign(target, &#123; a: 1 &#125;, &#123; b: 2 &#125;)
+          </span>
+        </p>
+        <p>
+          &nbsp;&nbsp;2 Object.freeze() замораживает объект, делая его
+          неизменяемым&nbsp;
+          <span onClick={() => copyToClipboard('Object.freeze(obj)')}>
+            Object.freeze(obj)
+          </span>
+        </p>
+        <p>
+          &nbsp;&nbsp;3 Object.seal() нельзя добавлять новые свойства, но старые
+          менять можно&nbsp;
+          <span onClick={() => copyToClipboard('Object.freeze(obj)')}>
+            Object.seal(obj)
+          </span>
+        </p>
+        <p>
+          &nbsp;&nbsp;4 Object.is() сравнение. Объекты в JavaScript сравниваются
+          по ссылке, а не по содержимому. Сравнение двух объектов с одинаковым
+          содержанием покажет false&nbsp;
+          <span onClick={() => copyToClipboard('Object.is(obj1, obj2)')}>
+            Object.is(obj1, obj2)
+          </span>
+        </p>
       </div>
     </>
   )

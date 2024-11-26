@@ -1,14 +1,16 @@
+import { TernaryOperatorLesson } from './ternary_operator/TernaryOperatorLesson'
 import { UseStateUseRefLesson } from './useState_useRef/UseStateUseRefLesson'
 import { StartPageViteLesson } from './start_page_Vite/StartPageViteLesson'
 import { ConstructorLesson } from './constructor/ConstructorLesson'
 import { PrimitiveLesson } from './primitive/PrimitiveLesson'
 import { FunctionLesson } from './function/FunctionLesson'
+import { ObjectLesson } from './object/ObjectLesson'
 import { ArrayLesson } from './array/ArrayLesson'
 
 export const lessonsMap = {
   primitive: { banner: 'Примитивные типы данных', component: PrimitiveLesson },
   array: { banner: 'Массивы', component: ArrayLesson },
-  object: { banner: 'Объекты', component: UseStateUseRefLesson },
+  object: { banner: 'Объекты', component: ObjectLesson },
   constructor: {
     banner: 'Конструкторы',
     component: ConstructorLesson,
@@ -19,7 +21,7 @@ export const lessonsMap = {
   },
   ternary_operator: {
     banner: 'Тернарные операторы',
-    component: UseStateUseRefLesson,
+    component: TernaryOperatorLesson,
   },
   prototype: { banner: 'Прототипы', component: UseStateUseRefLesson },
   class: {

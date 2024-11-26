@@ -171,7 +171,7 @@ const cat = { animal: 'cat' }`,
                 console.log(describeAnimal.apply( cat, ['brown', 'tabby',
                 'fluffy', 'fat'] ))
               </span>
-              &nbsp; // "brown tabby fluffy fat cats"
+              &nbsp; // "brown tabby fluffy fat cat"
             </p>
           </p>
         </div>

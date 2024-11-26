@@ -1,10 +1,10 @@
 import { copyToClipboard } from '../../../utils/utils'
-import styles from './FunctionLesson.module.sass'
+import styles from './ObjectLesson.module.sass'
 
-export const FunctionLesson: React.FC = () => {
+export const ObjectLesson: React.FC = () => {
   return (
     <>
-      <div className={styles.Function_text}>
+      <div className={styles.Object_text}>
         <p>
           <i>Функция</i> — это объект высшего порядка, представляющий блок кода,
           который можно вызывать и повторно использовать. Функция принимает

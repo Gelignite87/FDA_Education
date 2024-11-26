@@ -103,7 +103,6 @@ const describeCat = describeAnimal.bind(cat, 'brown', 'tabby')`,
             (опционально) предустановленными аргументами. Возвращает новую
             функцию. Не вызывает функцию сразу, а только закрепляет this.
             <br />
-            <br />
             <span
               onClick={() =>
                 copyToClipboard("console.log(describeCat( 'fluffy', 'fat' ))")
@@ -139,65 +138,41 @@ const cat = { animal: 'cat' }`,
           </div>
           <b>&nbsp;&nbsp;</b>
           <p>
-            Call вызывает функцию с указанным значением this и передаёт
-            аргументы через запятую. Вызывает функцию немедленно. Позволяет
-            передать this и аргументы через запятую.
-            <br />
-            <br />
-            <span
-              onClick={() =>
-                copyToClipboard(
-                  "console.log(describeAnimal.call( cat, 'brown', 'tabby','fluffy', 'fat' ))",
-                )
-              }
-            >
-              console.log(describeAnimal.call( cat, 'brown', 'tabby', 'fluffy',
-              'fat' ))
-            </span>
-            &nbsp; // "brown tabby fluffy fat cat"
-          </p>
-        </div>
-        <br />
-        <div>
-          <div
-            onClick={() =>
-              copyToClipboard(
-                `function describeAnimal(arg1, arg2, arg3, arg4) {
-  return \`\${arg1} \${arg2} \${arg3} \${arg4} \${this.animal}\`
-}
-
-const cat = { animal: 'cat' }`,
-              )
-            }
-          >
-            function describeAnimal(arg1, arg2, arg3, arg4) &#123;
-            <br />
-            &nbsp;&nbsp;return `&#36;&#123;arg1&#125; &#36;&#123;arg2&#125;
-            &#36;&#123;arg3&#125; &#36;&#123;arg4&#125;
-            &#36;&#123;this.animal&#125;`
-            <br />
-            &#125;
-            <br />
-            const cat = &#123; animal: 'cat' &#125;
-          </div>
-          <b>&nbsp;&nbsp;</b>
-          <p>
-            Apply похож на call, но принимает аргументы в виде массива. Вызывает
-            функцию немедленно. Удобен, когда аргументы уже представлены в
-            массиве.
-            <br />
-            <br />
-            <span
-              onClick={() =>
-                copyToClipboard(
-                  "console.log(describeAnimal.apply( cat, ['brown', 'tabby','fluffy', 'fat'] ))",
-                )
-              }
-            >
-              console.log(describeAnimal.apply( cat, ['brown', 'tabby',
-              'fluffy', 'fat'] ))
-            </span>
-            &nbsp; // "brown tabby fluffy fat cat"
+            <p>
+              Call вызывает функцию с указанным значением this и передаёт
+              аргументы через запятую. Вызывает функцию немедленно. Позволяет
+              передать this и аргументы через запятую.
+              <br />
+              <span
+                onClick={() =>
+                  copyToClipboard(
+                    "console.log(describeAnimal.call( cat, 'brown', 'tabby','fluffy', 'fat' ))",
+                  )
+                }
+              >
+                console.log(describeAnimal.call( cat, 'brown', 'tabby',
+                'fluffy', 'fat' ))
+              </span>
+              &nbsp; // "brown tabby fluffy fat cat"
+              <br />
+            </p>
+            <p>
+              Apply похож на call, но принимает аргументы в виде массива.
+              Вызывает функцию немедленно. Удобен, когда аргументы уже
+              представлены в массиве.
+              <br />
+              <span
+                onClick={() =>
+                  copyToClipboard(
+                    "console.log(describeAnimal.apply( cat, ['brown', 'tabby','fluffy', 'fat'] ))",
+                  )
+                }
+              >
+                console.log(describeAnimal.apply( cat, ['brown', 'tabby',
+                'fluffy', 'fat'] ))
+              </span>
+              &nbsp; // "brown tabby fluffy fat cat"
+            </p>
           </p>
         </div>
       </div>

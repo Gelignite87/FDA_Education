@@ -1,5 +1,6 @@
 import { LeftMenu } from '../../components/left-menu/LeftMenu.tsx'
 import { NotFound } from '../../components/not-found/NotFound.tsx'
+import { ToastTypes } from '../../components/toast/ToastTypes.ts'
 import { Banner } from '../../components/banner/Banner.tsx'
 import { Footer } from '../../components/footer/Footer.tsx'
 import { Toast } from '../../components/toast/Toast.tsx'
@@ -15,10 +16,11 @@ export const Lessons: React.FC = () => {
   const ComponentToRender = lessonsMap[lessonsMap_id]?.component
 
   //Код для компонента Toast.tsx
-  const [showToast, setShowToast] = useState<{
-    isShow: boolean
-    text: string
-  }>({ isShow: false, text: '' })
+  const [showToast, setShowToast] = useState<ToastTypes>({
+    isShow: false,
+    text: '',
+  })
+  const propsToast = { showToast, setShowToast }
 
   //Код для компонента StartPageViteLesson.tsx
   const [count, setCount] = useState<number>(0)
@@ -41,7 +43,7 @@ export const Lessons: React.FC = () => {
           <div className={styles.lessons_flexRight}>
             {ComponentToRender ? (
               <ComponentToRender
-                props={{ ...propsApp, ...propsTimer, setShowToast }}
+                props={{ ...propsToast, ...propsApp, ...propsTimer }}
               />
             ) : (
               <NotFound />
@@ -49,7 +51,7 @@ export const Lessons: React.FC = () => {
           </div>
         </div>
       </div>
-      <Toast showToast={showToast} setShowToast={setShowToast} />
+      <Toast props={{ showToast, setShowToast }} />
       <Footer />
     </>
   )

@@ -1,12 +1,10 @@
+import { ToastPropsTypes } from './ToastTypes'
 import styles from './Toast.module.sass'
 import { useEffect } from 'react'
 
-export const Toast: React.FC<{
-  showToast: { isShow: boolean; text: string }
-  setShowToast: React.Dispatch<
-    React.SetStateAction<{ isShow: boolean; text: string }>
-  >
-}> = ({ showToast, setShowToast }) => {
+export const Toast: React.FC<ToastPropsTypes> = ({
+  props: { showToast, setShowToast },
+}) => {
   useEffect(() => {
     if (showToast.isShow) {
       const timer = setTimeout(() => {

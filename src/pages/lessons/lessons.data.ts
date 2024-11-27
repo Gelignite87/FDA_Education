@@ -1,4 +1,4 @@
-import { TernaryOperatorLesson } from './ternary_operator/TernaryOperatorLesson'
+import { UsefulOperatorLesson } from './useful_operator/UsefulOperatorLesson'
 import { UseStateUseRefLesson } from './useState_useRef/UseStateUseRefLesson'
 import { StartPageViteLesson } from './start_page_Vite/StartPageViteLesson'
 import { DestructuringLesson } from './destructuring/DestructuringLesson'
@@ -20,9 +20,9 @@ export const lessonsMap = {
     banner: 'Функции',
     component: FunctionLesson,
   },
-  ternary_operator: {
-    banner: 'Тернарные операторы',
-    component: TernaryOperatorLesson,
+  useful_operator: {
+    banner: 'Полезные операторы',
+    component: UsefulOperatorLesson,
   },
   destructuring: {
     banner: 'Деструктуризация',

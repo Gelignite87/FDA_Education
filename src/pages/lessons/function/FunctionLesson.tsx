@@ -175,6 +175,77 @@ const cat = { animal: 'cat' }`,
             </p>
           </div>
         </div>
+        <br />
+        <p>
+          Генератор - это специальный тип функции в JavaScript, которая может
+          останавливать выполнение и возобновлять его позже.
+        </p>
+        <div>
+          <div
+            onClick={() =>
+              copyToClipboard(
+                `function* gen() { 
+    yield 1
+    yield 2
+    return 3
+}
+
+const iterator = gen()`,
+              )
+            }
+          >
+            function* gen() &#123;
+            <br />
+            &nbsp;&nbsp;yield 1
+            <br />
+            &nbsp;&nbsp;yield 2
+            <br />
+            &nbsp;&nbsp;return 3
+            <br />
+            &#125;
+            <br />
+            <br />
+            const iterator = gen()
+          </div>
+          <b>&nbsp;&nbsp;</b>
+          <p>
+            function* объявляет генераторную функцию. Генераторная функция
+            возвращает специальный объект - итератор. Итератор позволяет
+            вызывать метод .next(), который управляет выполнением функции.
+            Ключевое слово yield используется для приостановки выполнения
+            функции на определённой строке. При каждом вызове .next() выполнение
+            возобновляется с того места, где оно было приостановлено. yield
+            возвращает значение, переданное из функции в момент паузы.
+            <br />
+            <span
+              onClick={() => copyToClipboard('console.log(iterator.next())')}
+            >
+              console.log(iterator.next())
+            </span>
+            &nbsp; // &#123; value: 1, done: false &#125;
+            <br />
+            <span
+              onClick={() => copyToClipboard('console.log(iterator.next())')}
+            >
+              console.log(iterator.next())
+            </span>
+            &nbsp; // &#123; value: 2, done: false &#125;
+            <br />
+            <span
+              onClick={() => copyToClipboard('console.log(iterator.next())')}
+            >
+              console.log(iterator.next())
+            </span>
+            &nbsp; // &#123; value: 3, done: true &#125;
+            <br />
+            <span
+              onClick={() => copyToClipboard('console.log(iterator.next())')}
+            >
+              console.log(iterator.next())
+            </span>
+            &nbsp; // &#123; value: undefined, done: true &#125;
+          </p>
+        </div>
       </div>
     </>
   )

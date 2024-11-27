@@ -37,6 +37,10 @@ export const lessonsMap = {
     banner: 'Взаимодействие с DOM',
     component: UseStateUseRefLesson,
   },
+  typescript: {
+    banner: 'Типизация в TypeScript',
+    component: UseStateUseRefLesson,
+  },
   style: {
     banner: 'Основные стили Css и их аналоги в Tailwind',
     component: UseStateUseRefLesson,

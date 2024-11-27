@@ -72,6 +72,11 @@ export const UsefulOperatorLesson: React.FC = () => {
           означает остаток от x = x / 5).
         </p>
         <p>
+          <span onClick={() => copyToClipboard('===, !==')}>===, !==</span>
+          &nbsp; операторы сравнения (строго равно, строго не равно). Сравнивают
+          не только значение но и тип данных.
+        </p>
+        <p>
           <span onClick={() => copyToClipboard('typeof 42')}>typeof 42</span>
           &nbsp; typeof определяет тип данных.
         </p>

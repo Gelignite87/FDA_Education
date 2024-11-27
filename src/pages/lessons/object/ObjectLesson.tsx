@@ -17,7 +17,7 @@ export const ObjectLesson: React.FC = () => {
         <br />
         <p>Создание объектов:</p>
         <p>
-          &nbsp;&nbsp;1 Через литерал объекта&nbsp;
+          &ensp;1 Через литерал объекта&nbsp;
           <span
             onClick={() =>
               copyToClipboard("const obj = { name:'Alice', age:30 }")
@@ -27,7 +27,7 @@ export const ObjectLesson: React.FC = () => {
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;2 Через конструктор&nbsp;
+          &ensp;2 Через конструктор&nbsp;
           <span
             onClick={() =>
               copyToClipboard("const obj = new Object({ key: 'value' })")
@@ -37,7 +37,7 @@ export const ObjectLesson: React.FC = () => {
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;3 Через Object.create()&nbsp;
+          &ensp;3 Через Object.create()&nbsp;
           <span
             onClick={() =>
               copyToClipboard("const obj = Object.create({ key: 'value' })")
@@ -46,7 +46,7 @@ export const ObjectLesson: React.FC = () => {
             const obj = Object.create(&#123; key: 'value' &#125;)
           </span>
         </p>
-        <p>&nbsp;&nbsp;4 Через класс (ES6)&nbsp;</p>
+        <p>&ensp;4 Через класс (ES6)&nbsp;</p>
         <div>
           <div
             onClick={() =>
@@ -93,13 +93,10 @@ const person1 = new Person("Alice", 25)`,
             const person2 = new Person("Bob", 30)
           </div>
           <b>&nbsp;&nbsp;</b>
-          <p>
-            <br />
-            Создание объектов через класс (ES6).
-          </p>
+          <p>Создание объектов через класс (ES6).</p>
         </div>
         <p>
-          &nbsp;&nbsp;5 Через функции-конструкторы (устаревший метод, но всё ещё
+          &ensp;5 Через функции-конструкторы (устаревший метод, но всё ещё
           используется)&nbsp;
         </p>
         <div>
@@ -171,41 +168,41 @@ const person2 = new Person("Bob", 30)`,
         <br />
         <p>Свойства объекта:</p>
         <p>
-          &nbsp;&nbsp;1 Объявление свойства&nbsp;
+          &ensp;1 Объявление свойства&nbsp;
           <span onClick={() => copyToClipboard("const obj = { key: 'value' }")}>
             const obj = &#123; key: 'value' &#125;
           </span>
         </p>
-        <p>&nbsp;&nbsp;2 Доступ к свойству&nbsp; </p>
+        <p>&ensp;2 Доступ к свойству&nbsp; </p>
         <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+          &emsp;
           <span onClick={() => copyToClipboard('console.log(obj.key)')}>
             console.log(obj.key)
           </span>
           &nbsp;через точечную нотацию&nbsp;
         </p>
         <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;
+          &emsp;
           <span onClick={() => copyToClipboard("console.log(obj['key'])")}>
             console.log(obj['key'])
           </span>
           &nbsp;через квадратные скобки.
         </p>
         <p>
-          &nbsp;&nbsp;3 Динамическое добавление свойства&nbsp;
+          &ensp;3 Динамическое добавление свойства&nbsp;
           <span onClick={() => copyToClipboard("obj.newKey = 'newValue'")}>
             obj.newKey = 'newValue'
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;4 Удаление свойства&nbsp;
+          &ensp;4 Удаление свойства&nbsp;
           <span onClick={() => copyToClipboard('delete obj.key')}>
             delete obj.key
           </span>
         </p>
         <p>Методы объекта:</p>
         <p>
-          &nbsp;&nbsp;
+          &ensp;
           <span
             onClick={() =>
               copyToClipboard(
@@ -220,7 +217,7 @@ const person2 = new Person("Bob", 30)`,
           функциями.
         </p>
         <p>
-          &nbsp;&nbsp;
+          &ensp;
           <span
             onClick={() =>
               copyToClipboard('const calculator = {add(a, b) {return a + b}}')
@@ -234,9 +231,10 @@ const person2 = new Person("Bob", 30)`,
         <p>Перебор свойств объекта:</p>
         <div>
           <p>
-            &nbsp;&nbsp;1 for...in Перебирает все перечисляемые свойства,
-            включая свойства прототипа
+            &ensp;1 for...in Перебирает все перечисляемые свойства, включая
+            свойства прототипа
           </p>
+          <b>&nbsp;&nbsp;</b>
           <div
             onClick={() =>
               copyToClipboard(`for (let key in obj) {
@@ -250,10 +248,9 @@ const person2 = new Person("Bob", 30)`,
             <br />
             &#125;
           </div>
-          <b>&nbsp;</b>
         </div>
         <p>
-          &nbsp;&nbsp;2 Object.keys() Возвращает массив собственных ключей
+          &ensp;2 Object.keys() Возвращает массив собственных ключей
           объекта&nbsp;
           <span
             onClick={() => copyToClipboard('console.log(Object.keys(obj))')}
@@ -262,7 +259,7 @@ const person2 = new Person("Bob", 30)`,
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;3 Object.values() Возвращает массив значений объекта&nbsp;
+          &ensp;3 Object.values() Возвращает массив значений объекта&nbsp;
           <span
             onClick={() => copyToClipboard('console.log(Object.values(obj))')}
           >
@@ -270,8 +267,7 @@ const person2 = new Person("Bob", 30)`,
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;4 Object.entries() Возвращает массив пар [ключ,
-          значение]&nbsp;
+          &ensp;4 Object.entries() Возвращает массив пар [ключ, значение]&nbsp;
           <span
             onClick={() => copyToClipboard('console.log(Object.entries(obj))')}
           >
@@ -281,15 +277,14 @@ const person2 = new Person("Bob", 30)`,
         <br />
         <p>Копирование объектов:</p>
         <p>
-          &nbsp;&nbsp;1 Поверхностное копирование c использованием
+          &ensp;1 Поверхностное копирование c использованием
           спред-оператора&nbsp;
           <span onClick={() => copyToClipboard('const copy = { ...original }')}>
             const copy = &#123; ...original &#125;
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;2 Поверхностное копирование c помощью
-          Object.assign()&nbsp;
+          &ensp;2 Поверхностное копирование c помощью Object.assign()&nbsp;
           <span
             onClick={() =>
               copyToClipboard('const copy = Object.assign( {}, original )')
@@ -299,7 +294,7 @@ const person2 = new Person("Bob", 30)`,
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;3 Глубокое копирование с использованием JSON()&nbsp;
+          &ensp;3 Глубокое копирование с использованием JSON()&nbsp;
           <span
             onClick={() =>
               copyToClipboard(
@@ -319,7 +314,7 @@ const person2 = new Person("Bob", 30)`,
         <br />
         <p>Методы работы с объектами:</p>
         <p>
-          &nbsp;&nbsp;1 Object.assign() копирует свойства одного или нескольких
+          &ensp;1 Object.assign() копирует свойства одного или нескольких
           объектов в целевой объект&nbsp;
           <span
             onClick={() =>
@@ -330,22 +325,22 @@ const person2 = new Person("Bob", 30)`,
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;2 Object.freeze() замораживает объект, делая его
+          &ensp;2 Object.freeze() замораживает объект, делая его
           неизменяемым&nbsp;
           <span onClick={() => copyToClipboard('Object.freeze(obj)')}>
             Object.freeze(obj)
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;3 Object.seal() нельзя добавлять новые свойства, но старые
+          &ensp;3 Object.seal() нельзя добавлять новые свойства, но старые
           менять можно&nbsp;
           <span onClick={() => copyToClipboard('Object.freeze(obj)')}>
             Object.seal(obj)
           </span>
         </p>
         <p>
-          &nbsp;&nbsp;4 Object.is() сравнение. Объекты в JavaScript сравниваются
-          по ссылке, а не по содержимому. Сравнение двух объектов с одинаковым
+          &ensp;4 Object.is() сравнение. Объекты в JavaScript сравниваются по
+          ссылке, а не по содержимому. Сравнение двух объектов с одинаковым
           содержанием покажет false&nbsp;
           <span onClick={() => copyToClipboard('Object.is(obj1, obj2)')}>
             Object.is(obj1, obj2)

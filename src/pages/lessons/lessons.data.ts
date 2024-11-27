@@ -1,6 +1,7 @@
 import { TernaryOperatorLesson } from './ternary_operator/TernaryOperatorLesson'
 import { UseStateUseRefLesson } from './useState_useRef/UseStateUseRefLesson'
 import { StartPageViteLesson } from './start_page_Vite/StartPageViteLesson'
+import { DestructuringLesson } from './destructuring/DestructuringLesson'
 import { ConstructorLesson } from './constructor/ConstructorLesson'
 import { PrimitiveLesson } from './primitive/PrimitiveLesson'
 import { FunctionLesson } from './function/FunctionLesson'
@@ -25,7 +26,7 @@ export const lessonsMap = {
   },
   destructuring: {
     banner: 'Деструктуризация',
-    component: TernaryOperatorLesson,
+    component: DestructuringLesson,
   },
   prototype: { banner: 'Прототипы', component: UseStateUseRefLesson },
   class: {

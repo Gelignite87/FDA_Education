@@ -1,6 +1,6 @@
 @use '../../../_variables'
 
-.Object_text
+.Destructuring_text
 	p
 		text-indent: 1.5em
 		margin: 0
@@ -20,7 +20,7 @@
 		display: flex
 		justify-content: flex-start
 		align-items: center
-		> div
+		> div:first-child
 			flex: 0 0 33%
 			margin: 0 0 0 1.5em
 			padding: 5px
@@ -33,9 +33,5 @@
 				cursor: pointer
 			&:active
 				color: variables.$color-lovely-pink
-		> div:last-child
-			margin: 0
 		> p
 			text-indent: 0em
-		> p:first-child
-			text-indent: 1.5em

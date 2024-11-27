@@ -1,7 +1,13 @@
 import { copyToClipboard } from '../../../utils/utils'
 import styles from './ArrayLesson.module.sass'
 
-export const ArrayLesson: React.FC = () => {
+export const ArrayLesson: React.FC<{
+  props: {
+    setShowToast: React.Dispatch<
+      React.SetStateAction<{ isShow: boolean; text: string }>
+    >
+  }
+}> = ({ props: { setShowToast } }) => {
   return (
     <>
       <div className={styles.Array_text}>
@@ -14,9 +20,10 @@ export const ArrayLesson: React.FC = () => {
         <br />
         <p>
           <span
-            onClick={() =>
+            onClick={() => {
               copyToClipboard('const numbers = new Array(1, 2, 3, 4, 5)')
-            }
+              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+            }}
           >
             const numbers = new Array(1, 2, 3, 4, 5)
           </span>

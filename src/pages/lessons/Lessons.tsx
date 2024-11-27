@@ -2,6 +2,7 @@ import { LeftMenu } from '../../components/left-menu/LeftMenu.tsx'
 import { NotFound } from '../../components/not-found/NotFound.tsx'
 import { Banner } from '../../components/banner/Banner.tsx'
 import { Footer } from '../../components/footer/Footer.tsx'
+import { Toast } from '../../components/toast/Toast.tsx'
 import { lessonsMap } from './lessons.data.ts'
 import { useParams } from 'react-router-dom'
 import styles from './Lessons.module.sass'
@@ -12,6 +13,12 @@ export const Lessons: React.FC = () => {
   const lessonsMap_id = id as keyof typeof lessonsMap
   const bannerText = lessonsMap[lessonsMap_id]?.banner
   const ComponentToRender = lessonsMap[lessonsMap_id]?.component
+
+  //Код для компонента Toast.tsx
+  const [showToast, setShowToast] = useState<{
+    isShow: boolean
+    text: string
+  }>({ isShow: false, text: '' })
 
   //Код для компонента StartPageViteLesson.tsx
   const [count, setCount] = useState<number>(0)
@@ -33,13 +40,16 @@ export const Lessons: React.FC = () => {
           </div>
           <div className={styles.lessons_flexRight}>
             {ComponentToRender ? (
-              <ComponentToRender props={{ ...propsApp, ...propsTimer }} />
+              <ComponentToRender
+                props={{ ...propsApp, ...propsTimer, setShowToast }}
+              />
             ) : (
               <NotFound />
             )}
           </div>
         </div>
       </div>
+      <Toast showToast={showToast} setShowToast={setShowToast} />
       <Footer />
     </>
   )

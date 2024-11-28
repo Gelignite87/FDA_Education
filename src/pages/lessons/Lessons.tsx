@@ -19,6 +19,7 @@ export const Lessons: React.FC = () => {
   const [showToast, setShowToast] = useState<ToastTypes>({
     isShow: false,
     text: '',
+    color: '',
   })
   const propsToast = { showToast, setShowToast }
   const [idToast, setIdToast] = useState<number>(0)

@@ -1,12 +1,27 @@
 .Toast
+	display: flex
+	flex-direction: column
+	justify-content: start
 	position: fixed
 	bottom: 20px
 	left: 20px
 	background-color: rgba(0, 0, 0, 0.8)
-	padding: 10px 20px
 	border-radius: 8px
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2)
 	animation: fadeIn 0.3s ease-in-out, fadeOut 0.3s ease-in-out 1.71s
+	> .toast_text
+		padding: 7px 20px 5px 20px
+	> .countdown_bar
+		margin: 0 10px 10px 5px
+		height: 2px
+		color: transparent
+		animation: countdownBar 2s ease-in-out
+	> .countdown_bar_green
+		background-color: #77a877
+	> .countdown_bar_red
+		background-color: #b13a3a
+	> .countdown_bar_white
+		background-color: #d3d3d3
 
 @keyframes fadeIn
 	from
@@ -23,3 +38,9 @@
 	to
 		opacity: 0
 		transform: translateY(20px)
+
+@keyframes countdownBar
+	from
+		width: 95%
+	to
+		width: 0

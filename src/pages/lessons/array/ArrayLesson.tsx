@@ -19,7 +19,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('const numbers = new Array(1, 2, 3, 4, 5)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             const numbers = new Array(1, 2, 3, 4, 5)
@@ -28,7 +32,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('const numbers = Array(1, 2, 3, 4, 5)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             const numbers = Array(1, 2, 3, 4, 5)
@@ -39,7 +47,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('const numbers = Array(10).fill(1)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             const numbers = Array(10).fill(1)
@@ -51,7 +63,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('const myArray = Array.of(1, 2, 3)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             const myArray = Array.of(1, 2, 3)
@@ -65,7 +81,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'const fromRange = Array.from({ length: 5 }, (_, i) => i + 1)',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             const fromRange = Array.from(&#123; length: 5 &#125;, (_, i) =&gt; i
@@ -80,7 +100,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'array.forEach(data =>{return console.log(data.price * 10)})',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.forEach(data =&gt; &#123;return console.log(data.price *
@@ -95,7 +119,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'let arr = array.map(data => {return data.price * 10})',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             let arr = array.map(data =&gt; &#123;return data.price * 10&#125;)
@@ -108,7 +136,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'for (let data of array) {return data.price * 10})',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             for (let data of array) &#123;return data.price * 10&#125;)
@@ -120,7 +152,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.push(obj)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.push(obj)
@@ -131,7 +167,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.unshift(obj)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.unshift(obj)
@@ -142,7 +182,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('let popped = array.pop()')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             let popped = array.pop()
@@ -153,7 +197,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('let shifted = array.shift()')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             let shifted = array.shift()
@@ -164,7 +212,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('let arr = array.slice(1, 4)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             let arr = array.slice(1, 4)
@@ -175,7 +227,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard("let arr = array.splice(2, 4, 'x', 'y', 'z')")
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             let arr = array.splice(2, 4, ‘x’, ‘y’, ‘z’)
@@ -187,7 +243,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.splice(array.indexOf(arr), 1)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.splice(array.indexOf(arr), 1)
@@ -201,7 +261,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.findIndex((item) => item > 10)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.findIndex((item) =&gt; item &gt; 10)
@@ -214,7 +278,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'let arr = array.filter(data => data.name === "name")',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             let arr = array.filter(data =&gt; data.name === ‘name’)
@@ -226,7 +294,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('let arr = array.find(data => data.id === "id")')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             let arr = array.find(data =&gt; data.id === ‘id’)
@@ -240,7 +312,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'let arr = array.reduce((accum, data) => accum += data.price, 0)',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             let arr = array.reduce((accum, data) =&gt; accum += data.price, 0)
@@ -252,7 +328,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.includes(arr)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.includes(arr)
@@ -263,7 +343,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.every(data => data.price > 100)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.every(data =&gt; data.price &gt; 100)
@@ -275,7 +359,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.some(data => data.price > 100)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.some(data =&gt; data.price &gt; 100)
@@ -287,7 +375,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.flat(2)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.flat(2)
@@ -299,7 +391,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('array.length')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.length
@@ -312,7 +408,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'const array = [...firstArray, ...secondArray, ...firstArray]',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             const array = [...firstArray, ...secondArray, ...firstArray]
@@ -324,7 +424,11 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard("'text'.split()")
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             'text'.split()
@@ -336,42 +440,58 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard("'text'.split()")
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             'text'.split('')
           </span>
-          &nbsp; cтрока разбивается на массив отдельных символов: ['t', 'e',
+          &nbsp; строка разбивается на массив отдельных символов: ['t', 'e',
           'x', 't'].
         </p>
         <p>
           <span
             onClick={() => {
               copyToClipboard("'example_of_text_division'.split('_')")
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             'example_of_text_division'.split('_')
           </span>
-          &nbsp; cтрока разбивается по символу _ ['example', 'of', 'text',
+          &nbsp; строка разбивается по символу _ ['example', 'of', 'text',
           'division'].
         </p>
         <p>
           <span
             onClick={() => {
               copyToClipboard("array.join('_')")
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.join('_')
           </span>
-          &nbsp; cобирает строку из элементов массива, разделяя их символом _.
+          &nbsp; собирает строку из элементов массива, разделяя их символом _.
         </p>
         <p>
           <span
             onClick={() => {
               copyToClipboard("['banana', 'apple', 'cherry', 'date'].sort()'")
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             ['banana', 'apple', 'cherry', 'date'].sort()
@@ -384,13 +504,17 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'array.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.sort((a, b) =&gt;
             a.toLowerCase().localeCompare(b.toLowerCase()))
           </span>
-          &nbsp; cортировка по алфавиту с учетом особенностей локализации и
+          &nbsp; сортировка по алфавиту с учетом особенностей локализации и
           игнорированием регистра.
         </p>
         <p>
@@ -399,24 +523,32 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
               copyToClipboard(
                 'array.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))',
               )
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             array.sort((a, b) =&gt;
             a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
           </span>
-          &nbsp; cортировка объектов в массиве по полю name.
+          &nbsp; сортировка объектов в массиве по полю name.
         </p>
         <p>
           <span
             onClick={() => {
               copyToClipboard('[10, 2, 5, 3, 1].sort((a, b) => a - b)')
-              setShowToast({ isShow: true, text: 'Текст скопирован!' })
+              setShowToast({
+                isShow: true,
+                text: 'Текст скопирован!',
+                color: 'green',
+              })
             }}
           >
             [10, 2, 5, 3, 1].sort((a, b) =&gt; a - b)
           </span>
-          &nbsp; cортировка чисел по возрастанию: [1, 2, 3, 5, 10].
+          &nbsp; сортировка чисел по возрастанию: [1, 2, 3, 5, 10].
         </p>
       </div>
     </>

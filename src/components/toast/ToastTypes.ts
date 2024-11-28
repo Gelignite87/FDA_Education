@@ -1,6 +1,7 @@
 export type ToastTypes = {
   isShow: boolean
   text: string
+  color: string
 }
 
 export type ToastPropsTypes = {

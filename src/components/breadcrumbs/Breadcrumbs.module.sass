@@ -1,0 +1,21 @@
+@use '../../_variables'
+
+.Breadcrumbs
+	display: flex
+	align-items: center
+	font-size: 14px
+	color: variables.$color-lovely-violet-light
+	margin: 0 0 1.5em 1.5em
+	> span
+		display: flex
+		align-items: center
+		height: 15px
+		> a
+			border-bottom: 1px solid transparent
+			transition: border-bottom 0.15s ease-in // Анимация изменения цвета рамки
+			&:hover
+				cursor: pointer // Указатель при наведении
+				border-bottom: 1px solid variables.$color-lovely-violet
+				filter: drop-shadow(0 0 0.8em #646cffcc)
+		> span
+			margin: 0 5px

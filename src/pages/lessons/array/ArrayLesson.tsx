@@ -19,8 +19,7 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('const numbers = new Array(1, 2, 3, 4, 5)')
-              setShowToast({ isShow: false, text: '' })
-              setShowToast({ isShow: true, text: 'Текст 1!' })
+              setShowToast({ isShow: true, text: 'Текст скопирован!' })
             }}
           >
             const numbers = new Array(1, 2, 3, 4, 5)
@@ -29,8 +28,7 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('const numbers = Array(1, 2, 3, 4, 5)')
-              setShowToast({ isShow: false, text: '' })
-              setShowToast({ isShow: true, text: 'Текст 2!' })
+              setShowToast({ isShow: true, text: 'Текст скопирован!' })
             }}
           >
             const numbers = Array(1, 2, 3, 4, 5)
@@ -41,8 +39,7 @@ export const ArrayLesson: React.FC<ToastPropsTypes> = ({
           <span
             onClick={() => {
               copyToClipboard('const numbers = Array(10).fill(1)')
-              setShowToast({ isShow: false, text: '' })
-              setShowToast({ isShow: true, text: 'Текст 3!' })
+              setShowToast({ isShow: true, text: 'Текст скопирован!' })
             }}
           >
             const numbers = Array(10).fill(1)

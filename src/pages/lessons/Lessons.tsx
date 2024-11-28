@@ -21,6 +21,7 @@ export const Lessons: React.FC = () => {
     text: '',
   })
   const propsToast = { showToast, setShowToast }
+  const [idToast, setIdToast] = useState<number>(0)
 
   //Код для компонента StartPageViteLesson.tsx
   const [count, setCount] = useState<number>(0)
@@ -51,7 +52,7 @@ export const Lessons: React.FC = () => {
           </div>
         </div>
       </div>
-      <Toast props={{ showToast, setShowToast }} />
+      <Toast props={{ showToast, setShowToast, idToast, setIdToast }} />
       <Footer />
     </>
   )

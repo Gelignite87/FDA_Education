@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Моё расширение .gitignore
+DOCKERcommand.txt
+GITcommand.txt
+SERVERcommand.txt
+CLEANWORKSPACEcommand.txt

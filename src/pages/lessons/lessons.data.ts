@@ -4,7 +4,9 @@ import { StartPageViteLesson } from './start_page_Vite/StartPageViteLesson'
 import { DestructuringLesson } from './destructuring/DestructuringLesson'
 import { ConstructorLesson } from './constructor/ConstructorLesson'
 import { PrimitiveLesson } from './primitive/PrimitiveLesson'
+import { PrototypeLesson } from './prototype/PrototypeLesson'
 import { FunctionLesson } from './function/FunctionLesson'
+import { ClassJSLesson } from './class_JS/ClassJSLesson'
 import { ObjectLesson } from './object/ObjectLesson'
 import { ArrayLesson } from './array/ArrayLesson'
 
@@ -28,10 +30,10 @@ export const lessonsMap = {
     banner: 'Деструктуризация',
     component: DestructuringLesson,
   },
-  prototype: { banner: 'Прототипы', component: UseStateUseRefLesson },
-  class: {
-    banner: 'Классы JavaScript, введённые в ECMAScript 2015',
-    component: UseStateUseRefLesson,
+  prototype: { banner: 'Прототипы', component: PrototypeLesson },
+  class_JS: {
+    banner: 'Классы JavaScript',
+    component: ClassJSLesson,
   },
   interaction_DOM: {
     banner: 'Взаимодействие с DOM',

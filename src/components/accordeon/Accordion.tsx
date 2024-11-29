@@ -7,21 +7,33 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
   const [isOpen, setIsOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
 
-  const toggleAccordion = () => {
-    setIsOpen(!isOpen)
-  }
-
   return (
     <>
       <div className={styles.accordion}>
         <button
-          className={`${styles.accordion_header} ${isOpen ? 'active' : ''}`}
-          onClick={toggleAccordion}
+          className={isOpen ? styles.button_isOpen : styles.button_isClose}
+          onClick={() => {
+            setIsOpen(!isOpen)
+          }}
         >
-          События (events)
+          <div>События (events)</div>
+          <div>&nbsp;</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="28"
+            height="28"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M6 10L12 16L18 10" />
+          </svg>
         </button>
         <div
-          className={styles.accordion_content}
+          className={`${styles.accordion_content}
+            ${isOpen ? styles.accordion_isOpen : styles.accordion_isClose}
+          `}
           style={{
             maxHeight: isOpen
               ? `${contentRef.current && contentRef.current.scrollHeight}px`
@@ -29,7 +41,7 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
           }}
           ref={contentRef}
         >
-          <div className={styles.accordion_content_inner}>{children}</div>
+          {children}
         </div>
       </div>
     </>

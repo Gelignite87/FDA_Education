@@ -231,192 +231,169 @@ export const InteractionDOMLesson: React.FC = () => {
           &nbsp; Удаление события.
         </p>
       </div>
-      <Accordion>
-        <p>
-          События мыши:
-          <br />
-          &emsp;&emsp;click - Клик на элемент.
-          <br />
-          &emsp;&emsp;dblclick - Двойной клик на элемент.
-          <br />
-          &emsp;&emsp;mousedown - Нажатие кнопки мыши.
-          <br />
-          &emsp;&emsp;mouseup - Отпускание кнопки мыши.
-          <br />
-          &emsp;&emsp;mousemove - Движение мыши над элементом.
-          <br />
-          &emsp;&emsp;mouseenter - Мышь зашла на элемент (без всплытия).
-          <br />
-          &emsp;&emsp;mouseleave - Мышь ушла с элемента (без всплытия).
-          <br />
-          &emsp;&emsp;mouseover - Мышь зашла на элемент (включая дочерние
-          элементы).
-          <br />
-          &emsp;&emsp;mouseout - Мышь ушла с элемента (включая дочерние
-          элементы).
-          <br />
-          &emsp;&emsp;contextmenu - Открытие контекстного меню (обычно правая
-          кнопка мыши).
-        </p>
-        <p>
-          События мыши:
-          <br />
-          &emsp;&emsp;click - Клик на элемент.
-          <br />
-          &emsp;&emsp;dblclick - Двойной клик на элемент.
-          <br />
-          &emsp;&emsp;mousedown - Нажатие кнопки мыши.
-          <br />
-          &emsp;&emsp;mouseup - Отпускание кнопки мыши.
-          <br />
-          &emsp;&emsp;mousemove - Движение мыши над элементом.
-          <br />
-          &emsp;&emsp;mouseenter - Мышь зашла на элемент (без всплытия).
-          <br />
-          &emsp;&emsp;mouseleave - Мышь ушла с элемента (без всплытия).
-          <br />
-          &emsp;&emsp;mouseover - Мышь зашла на элемент (включая дочерние
-          элементы).
-          <br />
-          &emsp;&emsp;mouseout - Мышь ушла с элемента (включая дочерние
-          элементы).
-          <br />
-          &emsp;&emsp;contextmenu - Открытие контекстного меню (обычно правая
-          кнопка мыши).
-        </p>
-        <p>
-          События клавиатуры
-          <br />
-          &emsp;&emsp;keydown - Нажатие клавиши.
-          <br />
-          &emsp;&emsp;keyup - Отпускание клавиши.
-          <br />
-          &emsp;&emsp;keypress - Устаревшее событие для ввода символов
-          (используйте keydown и keyup).
-        </p>
-        <p>
-          События фокуса
-          <br />
-          &emsp;&emsp;focus - Элемент получил фокус.
-          <br />
-          &emsp;&emsp;blur - Элемент потерял фокус.
-          <br />
-          &emsp;&emsp;focusin - То же, что и focus, но поддерживает всплытие.
-          <br />
-          &emsp;&emsp;focusout - То же, что и blur, но поддерживает всплытие.
-        </p>
-        <p>
-          События формы
-          <br />
-          &emsp;&emsp;input - Изменение значения &lt;input&gt; или
-          &lt;textarea&gt;.
-          <br />
-          &emsp;&emsp;change - Изменение значения формы (после потери фокуса).
-          <br />
-          &emsp;&emsp;submit - Отправка формы.
-          <br />
-          &emsp;&emsp;reset - Сброс формы.
-          <br />
-          &emsp;&emsp;invalid - Поле не прошло валидацию.
-        </p>
-        <p>
-          События для элементов
-          <br />
-          &emsp;&emsp;load - Полная загрузка элемента (например, изображения или
-          страницы).
-          <br />
-          &emsp;&emsp;unload - Страница выгружена (устаревшее, заменено на
-          beforeunload).
-          <br />
-          &emsp;&emsp;error - Произошла ошибка загрузки.
-          <br />
-          &emsp;&emsp;abort - Прерывание загрузки.
-          <br />
-          &emsp;&emsp;resize - Изменение размеров окна.
-          <br />
-          &emsp;&emsp;scroll - Прокрутка элемента или окна.
-        </p>
-        <p>
-          События сетевых запросов
-          <br />
-          &emsp;&emsp;loadstart - Начало загрузки ресурса.
-          <br />
-          &emsp;&emsp;progress - Процесс загрузки.
-          <br />
-          &emsp;&emsp;load - Успешное завершение загрузки.
-          <br />
-          &emsp;&emsp;error - Ошибка загрузки.
-          <br />
-          &emsp;&emsp;abort - Прерывание загрузки.
-          <br />
-          &emsp;&emsp;loadend - Завершение загрузки (успешно или с ошибкой).
-        </p>
-        <p>
-          События документа
-          <br />
-          &emsp;&emsp;DOMContentLoaded - Документ полностью загружен и готов к
-          работе.
-          <br />
-          &emsp;&emsp;readystatechange - Смена состояния документа (loading,
-          interactive, complete).
-        </p>
-        <p>
-          События Drag-and-Drop
-          <br />
-          &emsp;&emsp;drag - Элемент перетаскивается.
-          <br />
-          &emsp;&emsp;dragstart - Начало перетаскивания.
-          <br />
-          &emsp;&emsp;dragend - Конец перетаскивания.
-          <br />
-          &emsp;&emsp;dragover - Элемент находится над зоной перетаскивания.
-          <br />
-          &emsp;&emsp;dragenter - Элемент заходит в зону перетаскивания.
-          <br />
-          &emsp;&emsp;dragleave - Элемент покидает зону перетаскивания.
-          <br />
-          &emsp;&emsp;drop - Элемент сброшен в зону.
-        </p>
-        <p>
-          События клипборда
-          <br />
-          &emsp;&emsp;copy - Копирование данных.
-          <br />
-          &emsp;&emsp;cut - Вырезание данных.
-          <br />
-          &emsp;&emsp;paste - Вставка данных.
-        </p>
-        <p>
-          События мультимедиа
-          <br />
-          &emsp;&emsp;play - Начало воспроизведения.
-          <br />
-          &emsp;&emsp;pause - Остановка воспроизведения.
-          <br />
-          &emsp;&emsp;ended - Окончание воспроизведения
-          <br />
-          &emsp;&emsp;timeupdate - Обновление текущего времени воспроизведения.
-          <br />
-          &emsp;&emsp;volumechange - Изменение громкости.
-          <br />
-          &emsp;&emsp;seeking - Начало перемотки.
-          <br />
-          &emsp;&emsp;seeked - Завершение перемотки.
-        </p>
-        <p>
-          Специальные события
-          <br />
-          &emsp;&emsp;wheel - Прокрутка колёсиком мыши.
-          <br />
-          &emsp;&emsp;pointerdown, pointerup, pointermove - Универсальные
-          события указателя (заменяют события мыши и сенсорные события).
-          <br />
-          &emsp;&emsp;animationstart, animationend, animationiteration - События
-          анимации.
-          <br />
-          &emsp;&emsp;transitionstart, transitionend - События CSS-переходов.
-        </p>
-      </Accordion>
+      <div className={styles.accordion_position}>
+        <Accordion>
+          <p>
+            События мыши
+            <br />
+            &emsp;&emsp;click - Клик на элемент.
+            <br />
+            &emsp;&emsp;dblclick - Двойной клик на элемент.
+            <br />
+            &emsp;&emsp;mousedown - Нажатие кнопки мыши.
+            <br />
+            &emsp;&emsp;mouseup - Отпускание кнопки мыши.
+            <br />
+            &emsp;&emsp;mousemove - Движение мыши над элементом.
+            <br />
+            &emsp;&emsp;mouseenter - Мышь зашла на элемент (без всплытия).
+            <br />
+            &emsp;&emsp;mouseleave - Мышь ушла с элемента (без всплытия).
+            <br />
+            &emsp;&emsp;mouseover - Мышь зашла на элемент (включая дочерние
+            элементы).
+            <br />
+            &emsp;&emsp;mouseout - Мышь ушла с элемента (включая дочерние
+            элементы).
+            <br />
+            &emsp;&emsp;contextmenu - Открытие контекстного меню (обычно правая
+            кнопка мыши).
+          </p>
+          <p>
+            События клавиатуры
+            <br />
+            &emsp;&emsp;keydown - Нажатие клавиши.
+            <br />
+            &emsp;&emsp;keyup - Отпускание клавиши.
+            <br />
+            &emsp;&emsp;keypress - Устаревшее событие для ввода символов
+            (используйте keydown и keyup).
+          </p>
+          <p>
+            События фокуса
+            <br />
+            &emsp;&emsp;focus - Элемент получил фокус.
+            <br />
+            &emsp;&emsp;blur - Элемент потерял фокус.
+            <br />
+            &emsp;&emsp;focusin - То же, что и focus, но поддерживает всплытие.
+            <br />
+            &emsp;&emsp;focusout - То же, что и blur, но поддерживает всплытие.
+          </p>
+          <p>
+            События формы
+            <br />
+            &emsp;&emsp;input - Изменение значения &lt;input&gt; или
+            &lt;textarea&gt;.
+            <br />
+            &emsp;&emsp;change - Изменение значения формы (после потери фокуса).
+            <br />
+            &emsp;&emsp;submit - Отправка формы.
+            <br />
+            &emsp;&emsp;reset - Сброс формы.
+            <br />
+            &emsp;&emsp;invalid - Поле не прошло валидацию.
+          </p>
+          <p>
+            События для элементов
+            <br />
+            &emsp;&emsp;load - Полная загрузка элемента (например, изображения
+            или страницы).
+            <br />
+            &emsp;&emsp;unload - Страница выгружена (устаревшее, заменено на
+            beforeunload).
+            <br />
+            &emsp;&emsp;error - Произошла ошибка загрузки.
+            <br />
+            &emsp;&emsp;abort - Прерывание загрузки.
+            <br />
+            &emsp;&emsp;resize - Изменение размеров окна.
+            <br />
+            &emsp;&emsp;scroll - Прокрутка элемента или окна.
+          </p>
+          <p>
+            События сетевых запросов
+            <br />
+            &emsp;&emsp;loadstart - Начало загрузки ресурса.
+            <br />
+            &emsp;&emsp;progress - Процесс загрузки.
+            <br />
+            &emsp;&emsp;load - Успешное завершение загрузки.
+            <br />
+            &emsp;&emsp;error - Ошибка загрузки.
+            <br />
+            &emsp;&emsp;abort - Прерывание загрузки.
+            <br />
+            &emsp;&emsp;loadend - Завершение загрузки (успешно или с ошибкой).
+          </p>
+          <p>
+            События документа
+            <br />
+            &emsp;&emsp;DOMContentLoaded - Документ полностью загружен и готов к
+            работе.
+            <br />
+            &emsp;&emsp;readystatechange - Смена состояния документа (loading,
+            interactive, complete).
+          </p>
+          <p>
+            События Drag-and-Drop
+            <br />
+            &emsp;&emsp;drag - Элемент перетаскивается.
+            <br />
+            &emsp;&emsp;dragstart - Начало перетаскивания.
+            <br />
+            &emsp;&emsp;dragend - Конец перетаскивания.
+            <br />
+            &emsp;&emsp;dragover - Элемент находится над зоной перетаскивания.
+            <br />
+            &emsp;&emsp;dragenter - Элемент заходит в зону перетаскивания.
+            <br />
+            &emsp;&emsp;dragleave - Элемент покидает зону перетаскивания.
+            <br />
+            &emsp;&emsp;drop - Элемент сброшен в зону.
+          </p>
+          <p>
+            События клипборда
+            <br />
+            &emsp;&emsp;copy - Копирование данных.
+            <br />
+            &emsp;&emsp;cut - Вырезание данных.
+            <br />
+            &emsp;&emsp;paste - Вставка данных.
+          </p>
+          <p>
+            События мультимедиа
+            <br />
+            &emsp;&emsp;play - Начало воспроизведения.
+            <br />
+            &emsp;&emsp;pause - Остановка воспроизведения.
+            <br />
+            &emsp;&emsp;ended - Окончание воспроизведения
+            <br />
+            &emsp;&emsp;timeupdate - Обновление текущего времени
+            воспроизведения.
+            <br />
+            &emsp;&emsp;volumechange - Изменение громкости.
+            <br />
+            &emsp;&emsp;seeking - Начало перемотки.
+            <br />
+            &emsp;&emsp;seeked - Завершение перемотки.
+          </p>
+          <p>
+            Специальные события
+            <br />
+            &emsp;&emsp;wheel - Прокрутка колёсиком мыши.
+            <br />
+            &emsp;&emsp;pointerdown, pointerup, pointermove - Универсальные
+            события указателя (заменяют события мыши и сенсорные события).
+            <br />
+            &emsp;&emsp;animationstart, animationend, animationiteration -
+            События анимации.
+            <br />
+            &emsp;&emsp;transitionstart, transitionend - События CSS-переходов.
+          </p>
+        </Accordion>
+      </div>
       <br />
       <div className={styles.InteractionDOM_text}>
         <p>&emsp;6 Навигация по DOM:</p>

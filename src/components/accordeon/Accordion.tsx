@@ -13,25 +13,23 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <>
-      <div>
-        <div className={styles.accordion}>
-          <button
-            className={`${styles.accordion_header} ${isOpen ? 'active' : ''}`}
-            onClick={toggleAccordion}
-          >
-            События (events)
-          </button>
-          <div
-            className={styles.accordion_content}
-            style={{
-              maxHeight: isOpen
-                ? `${contentRef.current && contentRef.current.scrollHeight}px`
-                : '0',
-            }}
-            ref={contentRef}
-          >
-            <div className={styles.accordion_content_inner}>{children}</div>
-          </div>
+      <div className={styles.accordion}>
+        <button
+          className={`${styles.accordion_header} ${isOpen ? 'active' : ''}`}
+          onClick={toggleAccordion}
+        >
+          События (events)
+        </button>
+        <div
+          className={styles.accordion_content}
+          style={{
+            maxHeight: isOpen
+              ? `${contentRef.current && contentRef.current.scrollHeight}px`
+              : '0',
+          }}
+          ref={contentRef}
+        >
+          <div className={styles.accordion_content_inner}>{children}</div>
         </div>
       </div>
     </>

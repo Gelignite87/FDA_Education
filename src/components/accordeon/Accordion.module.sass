@@ -1,30 +1,28 @@
 @use '../../_variables'
 
 .accordion
-	border: 1px solid #ccc
-	// border-radius: 50px
 	overflow: hidden
-	// width: 100%
-	// max-width: 500px
-	margin: 0 15px 0 0
+	margin: 0 0 0 15px
 	.accordion_header
-		width: 100%
+		// width: 100%
 		// background-color: #f4f4f4
-		// padding: 10px 15px
-		// text-align: left
-		// border: none
-		// cursor: pointer
-		// outline: none
-		// font-size: 16px
-		// font-weight: bold
+		padding: 10px 15px
+		text-align: left
+		border: none
+		cursor: pointer
+		outline: none
+		font-size: 16px
+		font-weight: bold
 		transition: background-color 0.3s
 		&.active
-			background-color: #e0e0e0
-		.accordion_content
-			max-height: 0
-			overflow: hidden
-			transition: max-height 0.3s ease, padding 0.3s ease
-			padding: 0 15px
-			.accordion_content_inner
-				padding: 10px 0
-				font-size: 14px
+			// background-color: #e0e0e0
+	.accordion_content
+		background-color: variables.$color-lovely-black-light
+		max-height: 0
+		overflow: hidden
+		transition: max-height 0.9s ease, padding 0.9s ease
+		padding: 0 15px
+		.accordion_content_inner
+			background-color: variables.$color-lovely-black-light
+			padding: 10px 0
+			font-size: 14px

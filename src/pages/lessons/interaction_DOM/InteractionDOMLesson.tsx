@@ -29,8 +29,8 @@ export const InteractionDOMLesson: React.FC = () => {
         <p>&emsp;5. Comment Nodes — комментарии в документе.</p>
         <br />
         <p>
-          1 Доступ к элементам (для доступа к элементам используются методы
-          объекта document):
+          &emsp;1 Доступ к элементам (для доступа к элементам используются
+          методы объекта document):
         </p>
         <p>
           <span
@@ -82,7 +82,7 @@ export const InteractionDOMLesson: React.FC = () => {
           &nbsp; Возвращает элементы по тегу.
         </p>
         <br />
-        <p>2 Изменение содержимого и атрибутов:</p>
+        <p>&emsp;2 Изменение содержимого и атрибутов:</p>
         <p>
           <span onClick={() => copyToClipboard('element.textContent')}>
             element.textContent
@@ -112,6 +112,221 @@ export const InteractionDOMLesson: React.FC = () => {
             element.removeAttribute('attr')
           </span>
           &nbsp; Удаляет атрибут.
+        </p>
+        <br />
+        <p>&emsp;3 Создание, добавление и удаление элементов:</p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard("const newDiv = document.createElement('div')")
+            }
+          >
+            const newDiv = document.createElement('div')
+          </span>
+          &nbsp; Создание элемента.
+        </p>
+        <p>
+          <span onClick={() => copyToClipboard('parent.appendChild(newDiv)')}>
+            parent.appendChild(newDiv)
+          </span>
+          &nbsp; Добавляет элемент в конец дочерних узлов.
+        </p>
+        <p>
+          <span onClick={() => copyToClipboard('parent.prepend(newDiv)')}>
+            parent.prepend(newDiv)
+          </span>
+          &nbsp; Добавляет элемент в начало.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard('parent.insertBefore(newDiv, existingNode)')
+            }
+          >
+            parent.insertBefore(newDiv, existingNode)
+          </span>
+          &nbsp; Вставляет элемент перед существующим узлом.
+        </p>
+        <p>
+          <span onClick={() => copyToClipboard('parent.removeChild(child)')}>
+            parent.removeChild(child)
+          </span>
+          &nbsp; Удаляет дочерний элемент.
+        </p>
+        <p>
+          <span onClick={() => copyToClipboard('node.remove()')}>
+            node.remove()
+          </span>
+          &nbsp; Удаляет текущий элемент.
+        </p>
+        <br />
+        <p>&emsp;4 Работа со стилями:</p>
+        <p>
+          <span onClick={() => copyToClipboard('element.style.property')}>
+            element.style.property
+          </span>
+          &nbsp; Изменяет inline-стиль элемента.
+        </p>
+        <p>
+          <span
+            onClick={() => copyToClipboard("element.classList.add('class')")}
+          >
+            element.classList.add('class')
+          </span>
+          &nbsp; Добавляет класс.
+        </p>
+        <p>
+          <span
+            onClick={() => copyToClipboard("element.classList.remove('class')")}
+          >
+            element.classList.add('class')
+          </span>
+          &nbsp; Удаляет класс.
+        </p>
+        <p>
+          <span
+            onClick={() => copyToClipboard("element.classList.toggle('class')")}
+          >
+            element.classList.toggle('class')
+          </span>
+          &nbsp; Включает/выключает класс.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard("element.classList.contains('class')")
+            }
+          >
+            element.classList.contains('class')
+          </span>
+          &nbsp; Проверяет наличие класса.
+        </p>
+        <br />
+        <p>&emsp;5 События и их обработка:</p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard(
+                "element.addEventListener('event', () => {console.log('Событие произошло!')})",
+              )
+            }
+          >
+            element.addEventListener('event', () =&gt;
+            &#123;console.log('Событие произошло!')&#125;)
+          </span>
+          &nbsp; Назначает обработчик события.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard(
+                "element.removeEventListener('event', () => {console.log('Событие произошло!')})",
+              )
+            }
+          >
+            element.removeEventListener('event', () =&gt;
+            &#123;console.log('Событие произошло!')&#125;)
+          </span>
+          &nbsp; Удаление события.
+        </p>
+        <br />
+        <p>&emsp;6 Навигация по DOM:</p>
+        <p>
+          <span onClick={() => copyToClipboard('element.parentNode')}>
+            element.parentNode
+          </span>
+          &nbsp; Родительский узел.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard('element.childNodes / element.children')
+            }
+          >
+            element.childNodes / element.children
+          </span>
+          &nbsp; Дочерние узлы.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard('element.firstChild / element.firstElementChild')
+            }
+          >
+            element.firstChild / element.firstElementChild
+          </span>
+          &nbsp; Первый дочерний узел.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard('element.lastChild / element.lastElementChild')
+            }
+          >
+            element.lastChild / element.lastElementChild
+          </span>
+          &nbsp; Последний дочерний узел.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard(
+                'element.nextSibling / element.nextElementSibling',
+              )
+            }
+          >
+            element.nextSibling / element.nextElementSibling
+          </span>
+          &nbsp; Следующий соседний узел.
+        </p>
+        <p>
+          <span
+            onClick={() =>
+              copyToClipboard(
+                'element.previousSibling / element.previousElementSibling',
+              )
+            }
+          >
+            element.previousSibling / element.previousElementSibling
+          </span>
+          &nbsp; Предыдущий соседний узел.
+        </p>
+        <br />
+        <p>&emsp;7 Перерисовка (Reflow и Repaint):</p>
+        <div>
+          <div
+            onClick={() =>
+              copyToClipboard(
+                `const fragment = document.createDocumentFragment()
+const div = document.createElement('div')
+fragment.appendChild(div)
+document.body.appendChild(fragment)`,
+              )
+            }
+          >
+            const fragment = document.createDocumentFragment()
+            <br />
+            const div = document.createElement('div')
+            <br />
+            fragment.appendChild(div)
+            <br />
+            document.body.appendChild(fragment)
+          </div>
+          <b>&nbsp;&nbsp;</b>
+          <p>
+            Изменение DOM-структуры может вызвать перерасчёт стилей и макета.
+            Минимизируйте прямое изменение DOM, используя DocumentFragment или
+            шаблоны.
+            <br />
+            <br />
+            Фрагменты (DocumentFragment) позволяют добавлять элементы без
+            влияния на производительность.
+          </p>
+        </div>
+        <br />
+        <p>
+          &emsp;8 В некоторых библиотеках (например React) используется
+          виртуальный DOM для оптимизации работы с DOM.
         </p>
       </div>
     </>

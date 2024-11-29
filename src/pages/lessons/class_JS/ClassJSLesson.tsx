@@ -164,25 +164,17 @@ const employee = new Employee("Alice", 30, "Developer")`,
           <b>&nbsp;&nbsp;</b>
           <p>
             Ключевое слово extends указывает, что класс Employee наследует от
-            класса Person.
-            <br />
-            <br />
-            Метод super вызывает конструктор Person и передаёт параметры name и
-            age, чтобы инициализировать соответствующие свойства в Person.
-            <br />
-            <br />
-            После вызова super в конструкторе можно добавить дополнительные
-            свойства, которые относятся только к дочернему классу (this.job =
-            job).
+            класса Person. Метод super вызывает конструктор Person и передаёт
+            параметры name и age, чтобы инициализировать соответствующие
+            свойства в Person. После вызова super в конструкторе можно добавить
+            дополнительные свойства, которые относятся только к дочернему классу
+            (this.job = job).
             <br />
             <br />
             В дочернем классе можно добавлять новые методы, которых нет в
-            родительском (describeJob()).
-            <br />
-            <br />
-            Методы родителя могут быть переопределены в дочернем классе. При
-            этом можно вызвать оригинальную реализацию родительского метода
-            через super (greet()).
+            родительском (describeJob()). Методы родителя могут быть
+            переопределены в дочернем классе. При этом можно вызвать
+            оригинальную реализацию родительского метода через super (greet()).
             <br />
             <br />
             Статические методы родительского класса также наследуются, если они
@@ -288,14 +280,15 @@ const person1 = new Person("Alice", 25)`,
           </div>
           <b>&nbsp;&nbsp;</b>
           <p>
-            Геттеры и сеттеры вызываются как свойства (person1.getName и )
+            Геттеры и сеттеры вызываются как свойства объекта (person1.getName и
+            person1.setAge).
             <br />
             <br />
             Геттеры не принимают аргументов.
             <br />
             <br />
             Название геттера/сеттера не должно совпадать с this.&lt;название&gt;
-            внутри себя чтобы избежать рекурсии (они будут вызывать сами себя).
+            внутри себя, чтобы избежать рекурсии (они будут вызывать сами себя).
             <br />
             <br />
             В данном примере сеттер проводит валидацию входящего числа (число
@@ -303,16 +296,34 @@ const person1 = new Person("Alice", 25)`,
             <br />
             <br />
             <span
-              onClick={() => copyToClipboard('console.log(person1.greet())')}
+              onClick={() => copyToClipboard('console.log(person1.getName)')}
             >
-              console.log(person1.greet())
+              console.log(person1.getName)
             </span>
-            &nbsp; // "Hi, my name is Alice and I'm 25 years old"
+            &nbsp; // "Name: Alice, age: 25"
             <br />
-            <span onClick={() => copyToClipboard('console.log(Person.info())')}>
-              console.log(Person.info())
+            <span
+              onClick={() => copyToClipboard('console.log(person1.setAge)')}
+            >
+              console.log(person1.setAge)
             </span>
-            &nbsp; // "This is a Person class"
+            &nbsp; // 25
+            <br />
+            person1.setAge = 30 &nbsp;
+            <span
+              onClick={() => copyToClipboard('console.log(person1.setAge)')}
+            >
+              console.log(person1.setAge)
+            </span>
+            &nbsp; // 30
+            <br />
+            person1.setAge = -5 &nbsp;
+            <span
+              onClick={() => copyToClipboard('console.log(person1.setAge)')}
+            >
+              console.log(person1.setAge)
+            </span>
+            &nbsp; // 30 (валидация не пройдена)
           </p>
         </div>
       </div>

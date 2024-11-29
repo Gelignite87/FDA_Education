@@ -1,5 +1,6 @@
 import { UsefulOperatorLesson } from './useful_operator/UsefulOperatorLesson'
 import { UseStateUseRefLesson } from './useState_useRef/UseStateUseRefLesson'
+import { InteractionDOMLesson } from './interaction_DOM/InteractionDOMLesson'
 import { StartPageViteLesson } from './start_page_Vite/StartPageViteLesson'
 import { DestructuringLesson } from './destructuring/DestructuringLesson'
 import { ConstructorLesson } from './constructor/ConstructorLesson'
@@ -36,8 +37,8 @@ export const lessonsMap = {
     component: ClassJSLesson,
   },
   interaction_DOM: {
-    banner: 'Взаимодействие с DOM',
-    component: UseStateUseRefLesson,
+    banner: 'Взаимодействие с DOM-деревом',
+    component: InteractionDOMLesson,
   },
   typescript: {
     banner: 'Типизация в TypeScript',

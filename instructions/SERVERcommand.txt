@@ -1,0 +1,166 @@
+    // Подключение
+ssh root@176.57.213.148 / yes / password(j2eL36MA)
+ssh fda@176.57.213.148 / password(Joker!87)
+    // SSH
+ssh-keygen -t rsa / path(Enter) / password(Joker!87) / 
+cat ~/.ssh/id_rsa.pub / cat ~/.ssh/id_rsa               //SSH ключ, публичный и приватный
+ssh-copy-id -i ~/.ssh/id_rsa.pub fda@176.57.213.148     //кидаем ключ на сервер через командную строку Bash, предварительно скачав и установив инсталлятор .exe на сайте https://gitforwindows.org/
+
+    // Настройка MongoDB (root)
+sudo apt update
+sudo apt install wget curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
+curl -fsSL https://www.mongodb.org/static/pgp/server-6.0.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/mongodb-6.gpg
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+sudo apt update
+    // Установка MongoDB и автоматический запуск службы
+sudo apt install mongodb-org
+sudo systemctl enable --now mongod
+    // Проверка работоспособности и версия
+sudo systemctl status mongod
+mongod --version
+    // Настройка пользователя с ролью администратора
+mongosh
+use admin
+db.createUser({user:"fda", pwd:"Joker!87", roles:[{role:"root", db:"admin"}]})
+exit
+    // Чтобы MongoDB требовал аутентификацию, отредактируйте файл службы
+sudo nano /lib/systemd/system/mongod.service
+изменить строку ExecStart, добавив параметр --auth: ExecStart=/usr/bin/mongod --quiet --auth --config /etc/mongod.conf
+    // Перезагрузка конфигурации
+sudo systemctl daemon-reload
+sudo systemctl restart mongod
+    // Подключение как пользователь fda в базе admin
+mongosh -u fda -p --authenticationDatabase admin
+# db.runCommand({connectionStatus : 1})     //проверка авторизованного пользователя
+    // Создание пользователя в другой базе данных
+use <nameDB>
+db.createUser({user:"fda", pwd:"Joker!87", roles:[{role:"readWrite", db:"<nameDB>"}]})
+exit
+    // Настройка доступа к MongoDB из внешней сети
+sudo nano /etc/mongod.conf                  //измените bindIp в разделе net
+sudo systemctl restart mongod
+# sudo systemctl stop mongod / sudo systemctl daemon-reload / sudo systemctl start mongod   //на случай если restart не сработал
+    // Подключение к MongoDB удаленно
+mongosh "mongodb://fda:Joker!87@<server_ip>:27017/<nameDB>?authSource=admin"    //authSource=admin — параметр, указывающий, что аутентификация будет происходить через базу данных admin (где был создан пользователь fda)
+
+    // Настройка PostgreSQL (root)
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+    // Запуск и автоматическое включение службы PostgreSQL
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+# sudo systemctl status postgresql  //проверить статус службы
+    // Создание пользователя с правами суперпользователя
+sudo -u postgres psql
+CREATE ROLE fda WITH LOGIN PASSWORD 'Joker!87';
+ALTER ROLE fda WITH SUPERUSER;
+CREATE DATABASE <nameDB> OWNER fda;
+\q
+    // Чтобы PostgreSQL требовал пароль для авторизации, отредактируйте файл pg_hba.conf
+sudo nano /etc/postgresql/14/main/pg_hba.conf
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+local   all             all                                     md5     //найдите строки, отвечающие за локальные подключения (local), и измените peer или trust на md5, чтобы включить парольную аутентификацию
+    // Включение внешнего доступа
+sudo nano /etc/postgresql/14/main/postgresql.conf
+listen_addresses = '*'  //найдите строку listen_addresses и измените её на '*' для разрешения подключения с любого IP-адреса
+sudo systemctl restart postgresql
+    // Настройка подключения для внешних клиентов
+sudo nano /etc/postgresql/14/main/pg_hba.conf
+# TYPE  DATABASE        USER            ADDRESS                 METHOD
+host    all             fda             0.0.0.0/0               md5     //добавьте следующую строку, чтобы разрешить пользователю fda подключение с любого внешнего IP с использованием пароля
+sudo systemctl restart postgresql
+    // Подключение к PostgreSQL удаленно
+PGPASSWORD='Joker!87' psql -h <server_ip> -U fda -d <nameDB>      //указание пароля таким способом небезопасно
+    // Безопасное использование пароля
+nano ~/.pgpass
+<server_ip>:<port>:<database>:<username>:<password> //например 192.168.1.100:5432:<nameDB>:fda:Joker!87
+chmod 600 ~/.pgpass
+psql -h <server_ip> -U fda -d <nameDB>
+
+    // Настройка Docker (root)
+sudo apt update
+sudo apt install curl software-properties-common ca-certificates apt-transport-https -y
+curl -f -s -S -L https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"  //jammy - обозначение Ubuntu22
+sudo apt update
+# apt-cache policy docker-ce    //проверка источника установки
+sudo apt install docker-ce -y
+# sudo systemctl status docker  //проверка работоспособности
+sudo apt-get install docker-compose     //устанавливаем docker-compose
+    // Docker Hub:
+docker login                    //выполняем с запущенным Docker Desktop
+docker push <ImageName>         //отправляем image в репозиторий
+docker pull <ImageName>         //забираем image с Docker Hub
+
+    //Дополнительные настройки (root)
+apt install make                //взаимодействие с Makefile
+
+    // Настройка домена
+на хостинге (timeweb) привязываем домен к IP-адресу сервера
+у регистратора домена прописываем DNS ns1.timeweb.ru и ns2.timeweb.ru
+
+    // Настройка пользователя
+adduser fda / password(Joker!87) / FDA / enter / y //создаем юзера
+visudo / дублируем строку под root с новым пользователем / cntrl+X / y / enter
+su - fda                        //переключились на fda
+sudo passwd                     //если надо сменить пароль администратора
+    // Доступ пользователя к Docker (root)
+sudo usermod -aG docker <user> //заходим в <user> и делаем проверку id -nG
+
+    // Развертывание проекта (<user>)
+cd <path> / cd ..               //перемещение между папками
+ll или ls                       //смотрим сколько файлов и папок в системе, ls без скрытых
+pwd                             //полный путь к текущей директории
+mkdir <name>                    //создаем папку (не надо ее создавать т.к. git clone создаст папку с названием репозитория)
+touch <name>                    //создаем файл (nano сам создаст файл)
+rm -rf <dir>                    //удаление папки и всех дочерних элементов
+git clone https://github.com/Gelignite87/RED-Group_online-cinema.git                         // тянем данные из репозитория
+git clone git@github.com:Gelignite87/RED-Group_workout-app.git / yes / passwordSSH(Joker!87) // тянем данные из репозитория с использованием SSH
+git pull                        //повторное вытягивание данных из репозитория
+nano .env                       //редактируем .env
+
+    //Prisma
+npx prisma init                 //начало работы с prisma
+npx prisma migrate dev          //из папки сервера мигрируем prisma
+npx prisma migrate reset        //удаляем все миграции (если нужно сделать всё с нуля)
+
+    //Настройка Certbot и HTTPS (всё делаем с отключенным проксированием на 443 порт. Отключаем return 301 и блок server listen 443)
+в docker-compose.yml прописываем сервис certbot, а также общие папки для nginx и certbot
+в nginx.conf добавляем location /.well-known/acme-challenge/ {root /var/www/certbot;}
+запускаем контейнеры
+контейнер certbot сразу остановится но будет продолжать выполнять свои функции
+docker compose run --rm  certbot certonly --webroot --webroot-path=/var/www/certbot/ --email railgun87@rambler.ru --agree-tos --no-eff-email --dry-run -d fdasite.ru    //регистрация и проверка
+docker compose run --rm  certbot certonly --webroot --webroot-path=/var/www/certbot/ --email railgun87@rambler.ru --agree-tos --no-eff-email -d fdasite.ru              //регистрация и создание сертификатов
+(возвращаем в nginx.conf return 301 и блок server listen 443)
+docker compose restart nginx / docker compose exec nginx nginx -s reload    //пересобираем сервис nginx или делаем перезагрузку
+    //Продление сертификата на 3 месяца (всё делаем с отключенным проксированием на 443 порт. Отключаем return 301 и блок server listen 443)
+docker compose run --rm certbot renew
+
+-----Optional------------------------------------------------------------------------------------------------
+
+    // Настройка Node.js
+sudo apt-get update
+sudo apt install nodejs / y
+sudo apt install curl           //если его нет, у меня был
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+source ~/.bashrc
+nvm -version                    //проверяем что nvm установился
+В VSCode смотрим версию ноды node -v (в моем случае 18.14.0) и в PowerShell пишем nvm install 18.14.0
+sudo apt install git            //если его нет, у меня был
+npm i -g yarn                   //установливаем глобально yarn
+npm install -g n / n latest     //обновляем node.js
+
+    // PM2
+npm install pm2 -g              // устанавливаем глобально pm2
+pm2 start yarn --name client -- preview //запуск из папки клиента (workout-app/wa-client)
+pm2 start yarn --name server -- start   //запуск из главной папки (workout-app)
+pm2 list                        // посмотреть процессы
+pm2 stop название или all       //остановка процесса
+pm2 delete название или all     //удаление процесса
+pm2 restart название или all    //перезагрузка процесса
+
+    // Nginx
+sudo apt-get install nginx      //ставим Nginx
+sudo nano /etc/nginx/sites-available/default    //настройка опций
+sudo service nginx restart      //рестарт после обновления конфига
+sudo nginx -t                   //проверяем работоспособность конфига

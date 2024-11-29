@@ -1,0 +1,14 @@
+    // После переустановки Windows настраиваю своё рабочее место
+    // Программы:
+Git-2.47.0.2-64-bit.exe
+VSCodeUserSetup-x64-1.95.1.exe
+Docker Desktop Installer.exe
+node-v22.11.0-x64.msi
+Insomnia.exe
+Beekeeper-Studio-portable.exe
+colors.exe
+PuntoSwitcherSetup.exe
+в командной строке с правами администратора: npm install --global yarn
+    // Расширения:
+в Google Chrome / диспетчер закладок / делаем импорт закладок / bookmarks_05.11.2024.html
+добавляем расширения VSCode

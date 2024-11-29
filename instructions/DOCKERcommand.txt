@@ -1,0 +1,36 @@
+    Docker:
+docker version                  //версия
+docker pull node:18             //скачиваем официальный image для node (найти команду можно на сайте hub.docker.com), :18 фиксируем версию
+docker images                   //выводим список images
+docker rmi <ImageID>            //удаляем image
+docker build -t gelignite/vm_logsapp .                  //создаем свой image по инструкции Dockerfile
+docker run -d -p 80:3000 --name vm_logsapp <ImageID>    //формируем и запускаем контейнер, снаружи порт 80, внутри 3000 (можно добавить --env-file .env)
+docker start <ContId>           //запускаем созданный ранее контейнер в фоновом режиме
+docker stop <ContId>            //останавливаем контейнер
+docker ps                       //показывает запущенные контейнеры
+docker ps -a                    //показывает все контейнеры
+docker attach <ContId>          //заходим внутрь контейнера
+docker logs <ContId>            //смотрим что выводит контейнер в консоль
+docker rm <ContId> <ContId>     //удаляем ненужные контейнеры
+docker container prune          //удаляем все остановленные контейнеры
+docker exec <ContId> ls /etc    //смотрим файловую структуру внутри контейнера
+docker cp <ContId>:/etc/mongod.conf.orig ./load     //достаём файл из контейнера
+docker cp ./conf/mongod.conf.orig <ContId>:/etc     //кладём файл в контейнер
+docker compose exec <nginx> nginx -s reload         //перезагрузка сервиса nginx
+docker network inspect online-cinema                //настройки внутренней сети контейнеров
+docker network ls                                   //смотрим сетевые соединения между контейнерами
+docker network prune                                //очистить все сетевые соединения
+
+    Container with volumes:
+docker run -d -p 80:3000 --restart always -v "C:\Users\Gelignite\Desktop\Docker:/application" --rm --name vm_logsapp <ImageID>
+
+    Оптимизация Docker (слишком много весит):
+заходим на сервер с правами root
+du -sh /var/lib/docker/*        //смотрим размеры файлов
+docker system prune -a          //чистим систему
+
+    Docker Hub:
+docker login                    //выполняем с запущенным Docker Desktop
+docker tag vm_logsapp gelignite/vm_logsapp              //копируем image с новым именем
+docker push <ImageName>         //отправляем image в репозиторий
+docker pull <ImageName>         //забираем image с Docker Hub

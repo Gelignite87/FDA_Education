@@ -1,11 +1,20 @@
+import { useState, useRef, useEffect } from 'react'
 import styles from './Accordion.module.sass'
-import { useState, useRef } from 'react'
 
 export const Accordion: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.style.setProperty(
+        'max-height',
+        isOpen ? `${contentRef.current.scrollHeight}px` : '0',
+      )
+    }
+  }, [isOpen])
 
   return (
     <>
@@ -34,11 +43,6 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
           className={`${styles.accordion_content}
             ${isOpen ? styles.accordion_isOpen : styles.accordion_isClose}
           `}
-          style={{
-            maxHeight: isOpen
-              ? `${contentRef.current && contentRef.current.scrollHeight}px`
-              : '0',
-          }}
           ref={contentRef}
         >
           {children}

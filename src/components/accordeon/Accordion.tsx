@@ -10,7 +10,7 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     if (contentRef.current) {
       contentRef.current.style.setProperty(
-        'max-height',
+        '--dynamic-max-height',
         isOpen ? `${contentRef.current.scrollHeight}px` : '0',
       )
     }

@@ -983,6 +983,117 @@ export const PrimitiveLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
+        <div className={styles.accordion_position}>
+          <Accordion title="Методы работы с объектом-обёрткой BigInt">
+            <p>
+              1&nbsp;
+              <span
+                onClick={() => copyToClipboard('BigInt.asIntN(bits, bigint)')}
+              >
+                BigInt.asIntN(bits, bigint)
+              </span>
+              &nbsp; Ограничивает BigInt до указанного количества битов,
+              интерпретируя его как целое число со знаком.
+              <br />
+              Пример:&nbsp;
+              <span
+                onClick={() => copyToClipboard('BigInt.asIntN(4, 10n) → -6n')}
+              >
+                BigInt.asIntN(4, 10n) → -6n
+              </span>
+            </p>
+            <p>
+              2&nbsp;
+              <span
+                onClick={() => copyToClipboard('BigInt.asUintN(bits, bigint)')}
+              >
+                BigInt.asUintN(bits, bigint)
+              </span>
+              &nbsp; Ограничивает BigInt до указанного количества битов,
+              интерпретируя его как беззнаковое целое число.
+              <br />
+              Пример:&nbsp;
+              <span
+                onClick={() => copyToClipboard('BigInt.asUintN(4, 10n) → 10n')}
+              >
+                BigInt.asUintN(4, 10n) → 10n
+              </span>
+            </p>
+            <p>
+              3&nbsp;
+              <span
+                onClick={() =>
+                  copyToClipboard('BigInt.prototype.toString([radix])')
+                }
+              >
+                toString([radix])
+              </span>
+              &nbsp; Возвращает строковое представление BigInt, опционально в
+              указанной системе счисления.
+              <br />
+              Пример:&nbsp;
+              <span
+                onClick={() =>
+                  copyToClipboard(
+                    '123456789123456789123456789n.toString(16) → "1bc16d674ec800000"',
+                  )
+                }
+              >
+                123456789123456789123456789n.toString(16) → "1bc16d674ec800000"
+              </span>
+            </p>
+            <p>
+              4&nbsp;
+              <span
+                onClick={() => copyToClipboard('BigInt.prototype.valueOf()')}
+              >
+                valueOf()
+              </span>
+              &nbsp; Возвращает примитивное значение объекта BigInt.
+              <br />
+              Пример:&nbsp;
+              <span onClick={() => copyToClipboard('(10n).valueOf() → 10n')}>
+                (10n).valueOf() → 10n
+              </span>
+            </p>
+            <p>
+              5&nbsp;
+              <span
+                onClick={() =>
+                  copyToClipboard('BigInt.prototype.toLocaleString()')
+                }
+              >
+                toLocaleString()
+              </span>
+              &nbsp; Возвращает строку, представляющую BigInt, с учетом текущей
+              локали.
+              <br />
+              Пример:&nbsp;
+              <span
+                onClick={() =>
+                  copyToClipboard(
+                    '(123456789123456789n).toLocaleString() → "123,456,789,123,456,789"',
+                  )
+                }
+              >
+                (123456789123456789n).toLocaleString() →
+                "123,456,789,123,456,789"
+              </span>
+            </p>
+            <p>
+              6&nbsp;
+              <span onClick={() => copyToClipboard('BigInt()')}>
+                BigInt(value)
+              </span>
+              &nbsp; Преобразует переданное значение в BigInt.
+              <br />
+              Пример:&nbsp;
+              <span onClick={() => copyToClipboard('BigInt("123") → 123n')}>
+                BigInt("123") → 123n
+              </span>
+            </p>
+          </Accordion>
+        </div>
         <br />
         <p>Особенности:</p>
         <p>

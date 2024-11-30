@@ -232,7 +232,7 @@ export const InteractionDOMLesson: React.FC = () => {
         </p>
       </div>
       <div className={styles.accordion_position}>
-        <Accordion>
+        <Accordion title="События (events)">
           <p>
             События мыши
             <br />

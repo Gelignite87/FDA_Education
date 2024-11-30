@@ -1,17 +1,18 @@
 import { useState, useRef, useEffect } from 'react'
 import styles from './Accordion.module.sass'
 
-export const Accordion: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const Accordion: React.FC<{
+  title: string
+  children: React.ReactNode
+}> = ({ title, children }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const contentRef = useRef<HTMLDivElement>(null)
+  const contentAccordionRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (contentRef.current) {
-      contentRef.current.style.setProperty(
+    if (contentAccordionRef.current) {
+      contentAccordionRef.current.style.setProperty(
         '--dynamic-max-height',
-        isOpen ? `${contentRef.current.scrollHeight}px` : '0',
+        isOpen ? `${contentAccordionRef.current.scrollHeight}px` : '0',
       )
     }
   }, [isOpen])
@@ -26,7 +27,7 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
             setIsOpen(!isOpen)
           }}
         >
-          <div>События (events)</div>
+          <div>{title}</div>
           <div>&nbsp;</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +45,7 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
           className={`${styles.accordion_content}
             ${isOpen ? styles.accordion_isOpen : styles.accordion_isClose}
           `}
-          ref={contentRef}
+          ref={contentAccordionRef}
         >
           {children}
         </div>

@@ -836,7 +836,7 @@ export const PrimitiveLesson: React.FC = () => {
           </Accordion>
         </div>
         <div className={styles.accordion_position}>
-          <Accordion title="Методы работы с логическими значениями объекта-обёртки Boolean">
+          <Accordion title="Методы работы с значениями объекта-обёртки Boolean">
             <p>
               1&nbsp;
               <span
@@ -905,6 +905,80 @@ export const PrimitiveLesson: React.FC = () => {
               Пример:&nbsp;
               <span onClick={() => copyToClipboard('Boolean.FALSE → false')}>
                 Boolean.FALSE → false
+              </span>
+            </p>
+          </Accordion>
+        </div>
+        <div className={styles.accordion_position}>
+          <Accordion title="Методы работы с объектом-обёрткой Simbol">
+            <p>
+              1&nbsp;
+              <span
+                onClick={() => copyToClipboard('Symbol.prototype.toString()')}
+              >
+                toString()
+              </span>
+              &nbsp; Преобразует объект Symbol в строку.
+              <br />
+              Пример:&nbsp;
+              <span
+                onClick={() =>
+                  copyToClipboard('Symbol("foo").toString() → "Symbol(foo)"')
+                }
+              >
+                Symbol("foo").toString() → "Symbol(foo)"
+              </span>
+            </p>
+            <p>
+              2&nbsp;
+              <span
+                onClick={() => copyToClipboard('Symbol.prototype.valueOf()')}
+              >
+                valueOf()
+              </span>
+              &nbsp; Возвращает сам символ как примитивное значение.
+              <br />
+              Пример:&nbsp;
+              <span
+                onClick={() =>
+                  copyToClipboard('Symbol("bar").valueOf() → Symbol(bar)')
+                }
+              >
+                Symbol("bar").valueOf() → Symbol(bar)
+              </span>
+            </p>
+            <p>
+              3&nbsp;
+              <span onClick={() => copyToClipboard('Symbol.for()')}>
+                Symbol.for(key)
+              </span>
+              &nbsp; Создаёт или возвращает символ, зарегистрированный в
+              глобальном реестре символов.
+              <br />
+              Пример:&nbsp;
+              <span
+                onClick={() =>
+                  copyToClipboard('Symbol.for("app") → Symbol(app)')
+                }
+              >
+                Symbol.for("app") → Symbol(app)
+              </span>
+            </p>
+            <p>
+              4&nbsp;
+              <span onClick={() => copyToClipboard('Symbol.keyFor()')}>
+                Symbol.keyFor(symbol)
+              </span>
+              &nbsp; Возвращает ключ для символа, зарегистрированного в
+              глобальном реестре.
+              <br />
+              Пример:&nbsp;
+              <span
+                onClick={() =>
+                  copyToClipboard('Symbol.keyFor(Symbol("foo")) → undefined')
+                }
+              >
+                Symbol.keyFor(Symbol("foo")) → undefined
               </span>
             </p>
           </Accordion>

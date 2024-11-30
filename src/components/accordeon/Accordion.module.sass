@@ -2,13 +2,13 @@
 
 .accordion
 	overflow: hidden
-	background-color: variables.$color-lovely-black-light
 	> .accordion_button
 		display: flex
 		justify-content: center
 		align-items: center
 		border: 1px solid rgba(255, 255, 255, 0.87)
 		cursor: pointer
+		background-color: variables.$color-lovely-black-light
 		&:hover > div,
 		&:hover > svg
 			color: variables.$color-lovely-violet-light
@@ -29,6 +29,7 @@
 		max-height: var(--dynamic-max-height)
 		padding: 0 15px
 		border-radius: 0 0 8px 8px
+		background-color: variables.$color-lovely-black-light
 		> p
 			margin: 0
 			padding: 10px 0 0 0

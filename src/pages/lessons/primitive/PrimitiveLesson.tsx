@@ -92,7 +92,7 @@ export const PrimitiveLesson: React.FC = () => {
         </p>
         <br />
         <div className={styles.accordion_position}>
-          <Accordion title="Методы работы со строками объекта-обёртки String">
+          <Accordion title="Методы работы с объектом-обёрткой String">
             <p>
               1&nbsp;
               <span onClick={() => copyToClipboard('charAt(index)')}>
@@ -518,7 +518,7 @@ export const PrimitiveLesson: React.FC = () => {
           </Accordion>
         </div>
         <div className={styles.accordion_position}>
-          <Accordion title="Методы работы с числами объекта-обёртки Number">
+          <Accordion title="Методы работы с объектом-обёрткой Number">
             <p>
               1&nbsp;
               <span onClick={() => copyToClipboard('Number.isNaN(value)')}>
@@ -836,7 +836,7 @@ export const PrimitiveLesson: React.FC = () => {
           </Accordion>
         </div>
         <div className={styles.accordion_position}>
-          <Accordion title="Методы работы с значениями объекта-обёртки Boolean">
+          <Accordion title="Методы работы с объектом-обёрткой Boolean">
             <p>
               1&nbsp;
               <span

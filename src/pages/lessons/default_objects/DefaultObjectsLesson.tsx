@@ -15,13 +15,6 @@ export const DefaultObjectsLesson: React.FC = () => {
         </p>
         <br />
         <p>
-          Методы работы с объектами-обёртками примитивных типов данных (String,
-          Number, Boolean, Symbol, BigInt) находятся на соответствующей странице
-          &nbsp;
-          <Link to={'/lessons/primitive'}>'Примитивные типы данных'</Link>.
-        </p>
-        <br />
-        <p>
           1. <b>Object.</b> Основной объект, который служит базой для всех
           других объектов в JavaScript. Он предоставляет методы для работы с
           свойствами объектов, такие как Object.keys(), Object.values(),
@@ -32,6 +25,92 @@ export const DefaultObjectsLesson: React.FC = () => {
           коллекции данных. Массивы являются объектами, но предоставляют
           специальные методы для работы с элементами, такие как push(), pop(),
           map(), filter(), reduce() и другие.
+        </p>
+        <p>
+          3. <b>Function.</b> Функции в JavaScript — это объекты, которые могут
+          быть вызваны. Они являются фундаментальной частью языка, и функции
+          могут иметь методы, такие как call(), apply(), bind().
+        </p>
+        <p>
+          4. <b>Date.</b> Объект для работы с датами и временем. Он
+          предоставляет методы для получения текущей даты, вычисления разницы
+          между датами, форматирования дат и т.д.
+        </p>
+        <p>
+          5. <b>RegExp.</b> Объект для работы с регулярными выражениями. Он
+          используется для выполнения поиска и замены в строках с использованием
+          регулярных выражений.
+        </p>
+        <p>
+          6. <b>Error.</b> Объект для создания и обработки ошибок. Он является
+          основой для всех типов ошибок в JavaScript, таких как SyntaxError,
+          ReferenceError, TypeError, и т.д.
+        </p>
+        <p>
+          7. <b>Map.</b> Коллекция, которая хранит пары "ключ-значение", где
+          ключи могут быть любого типа, а не только строки (в отличие от обычных
+          объектов). Методы: set(), get(), has(), delete() и другие.
+        </p>
+        <p>
+          8. <b>Set.</b> Коллекция уникальных значений, которая может хранить
+          только уникальные элементы, аналогично массиву, но без дублирования
+          значений. Методы: add(), has(), delete(), clear() и другие.
+        </p>
+        <p>
+          9. <b>WeakMap.</b> Похож на Map, но ключи могут быть только объектами
+          и они не препятствуют сборщику мусора очищать память, если объект-ключ
+          больше не используется.
+        </p>
+        <p>
+          10. <b>WeakSet.</b> Похож на Set, но в нём могут быть только объекты в
+          качестве значений, и также значения не препятствуют сборщику мусора.
+        </p>
+        <p>
+          11. <b>Promise.</b> Объект для работы с асинхронными операциями. Он
+          позволяет обрабатывать результаты асинхронных вычислений, такие как
+          успешные или ошибочные завершения операций.
+        </p>
+        <p>
+          12. <b>Proxy.</b> Объект, который позволяет перехватывать и изменять
+          поведение базовых операций с объектами (например, получение,
+          присваивание значений, вызов функций и т.д.).
+        </p>
+        <p>
+          13. <b>Reflect.</b> Объект для работы с мета-программированием,
+          предоставляющий методы, которые облегчают взаимодействие с объектами и
+          операциями, такими как Reflect.apply(), Reflect.get(), Reflect.set() и
+          другие.
+        </p>
+        <p>
+          14. <b>Intl.</b> Объект для работы с международными стандартами. Он
+          включает в себя классы для работы с форматированием чисел, дат,
+          валюты, строк, а также для локализации в различных языках.
+        </p>
+        <p>
+          15. <b>JSON.</b> Стандартный объект для работы с JSON-данными
+          (JavaScript Object Notation). Он предоставляет методы JSON.stringify()
+          для преобразования объектов в строку JSON и JSON.parse() для
+          преобразования строки JSON обратно в объект.
+        </p>
+        <p>
+          16. <b>console.</b> Объект, предоставляющий методы для вывода
+          информации в консоль, такие как console.log(), console.warn(),
+          console.error() и другие.
+        </p>
+        <p>
+          17. <b>window</b> (для браузера). Глобальный объект, представляющий
+          окно браузера. Он предоставляет доступ ко всем глобальным функциям,
+          объектам и переменным, таким как alert(), setTimeout(), localStorage,
+          и другие.
+        </p>
+        <p>
+          18. <b>document</b> (для браузера). Объект, представляющий
+          HTML-документ в браузере. Он используется для манипуляции с DOM,
+          поиска элементов на странице и выполнения различных операций с ними.
+        </p>
+        <p>
+          19. <b>location</b> (для браузера). Объект, предоставляющий информацию
+          о текущем URL и позволяющий изменять его или перезагружать страницу.
         </p>
         <br />
         <div className={styles.accordion_position}>
@@ -483,12 +562,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          3. <b>Function.</b> Функции в JavaScript — это объекты, которые могут
-          быть вызваны. Они являются фундаментальной частью языка, и функции
-          могут иметь методы, такие как call(), apply(), bind().
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Function">
             <p>
@@ -638,12 +711,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          4. <b>Date.</b> Объект для работы с датами и временем. Он
-          предоставляет методы для получения текущей даты, вычисления разницы
-          между датами, форматирования дат и т.д.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Date">
             <p>
@@ -803,12 +870,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          5. <b>RegExp.</b> Объект для работы с регулярными выражениями. Он
-          используется для выполнения поиска и замены в строках с использованием
-          регулярных выражений.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы RegExp">
             <p>
@@ -980,12 +1041,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          6. <b>Error.</b> Объект для создания и обработки ошибок. Он является
-          основой для всех типов ошибок в JavaScript, таких как SyntaxError,
-          ReferenceError, TypeError, и т.д.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Error">
             <p>
@@ -1085,12 +1140,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          7. <b>Map.</b> Коллекция, которая хранит пары "ключ-значение", где
-          ключи могут быть любого типа, а не только строки (в отличие от обычных
-          объектов). Методы: set(), get(), has(), delete() и другие.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Map">
             <p>
@@ -1287,12 +1336,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          8. <b>Set.</b> Коллекция уникальных значений, которая может хранить
-          только уникальные элементы, аналогично массиву, но без дублирования
-          значений. Методы: add(), has(), delete(), clear() и другие.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Set">
             <p>
@@ -1470,12 +1513,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          9. <b>WeakMap.</b> Похож на Map, но ключи могут быть только объектами
-          и они не препятствуют сборщику мусора очищать память, если объект-ключ
-          больше не используется.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы WeakMap">
             <p>
@@ -1569,11 +1606,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          10. <b>WeakSet.</b> Похож на Set, но в нём могут быть только объекты в
-          качестве значений, и также значения не препятствуют сборщику мусора.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы WeakSet">
             <p>
@@ -1644,12 +1676,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          11. <b>Promise.</b> Объект для работы с асинхронными операциями. Он
-          позволяет обрабатывать результаты асинхронных вычислений, такие как
-          успешные или ошибочные завершения операций.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Promise">
             <p>
@@ -1849,12 +1875,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          12. <b>Proxy.</b> Объект, который позволяет перехватывать и изменять
-          поведение базовых операций с объектами (например, получение,
-          присваивание значений, вызов функций и т.д.).
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Proxy">
             <p>
@@ -2013,13 +2033,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </ul>
           </Accordion>
         </div>
-        <br />
-        <p>
-          13. <b>Reflect.</b> Объект для работы с мета-программированием,
-          предоставляющий методы, которые облегчают взаимодействие с объектами и
-          операциями, такими как Reflect.apply(), Reflect.get(), Reflect.set() и
-          другие.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Reflect">
             <p>
@@ -2292,12 +2305,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          14. <b>Intl.</b> Объект для работы с международными стандартами. Он
-          включает в себя классы для работы с форматированием чисел, дат,
-          валюты, строк, а также для локализации в различных языках.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы Intl">
             <p>
@@ -2458,13 +2465,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          15. <b>JSON.</b> Стандартный объект для работы с JSON-данными
-          (JavaScript Object Notation). Он предоставляет методы JSON.stringify()
-          для преобразования объектов в строку JSON и JSON.parse() для
-          преобразования строки JSON обратно в объект.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы JSON">
             <p>
@@ -2531,12 +2531,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          16. <b>console.</b> Объект, предоставляющий методы для вывода
-          информации в консоль, такие как console.log(), console.warn(),
-          console.error() и другие.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы console">
             <p>
@@ -2728,13 +2722,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          17. <b>window</b> (для браузера). Глобальный объект, представляющий
-          окно браузера. Он предоставляет доступ ко всем глобальным функциям,
-          объектам и переменным, таким как alert(), setTimeout(), localStorage,
-          и другие.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы window">
             <p>
@@ -2931,12 +2918,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          18. <b>document</b> (для браузера). Объект, представляющий
-          HTML-документ в браузере. Он используется для манипуляции с DOM,
-          поиска элементов на странице и выполнения различных операций с ними.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы document">
             <p>
@@ -3183,11 +3164,6 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
-        <br />
-        <p>
-          19. <b>location</b> (для браузера). Объект, предоставляющий информацию
-          о текущем URL и позволяющий изменять его или перезагружать страницу.
-        </p>
         <div className={styles.accordion_position}>
           <Accordion title="Методы location">
             <p>
@@ -3386,6 +3362,13 @@ export const DefaultObjectsLesson: React.FC = () => {
             </p>
           </Accordion>
         </div>
+        <br />
+        <p>
+          Методы работы с объектами-обёртками примитивных типов данных (String,
+          Number, Boolean, Symbol, BigInt) находятся на соответствующей странице
+          &nbsp;
+          <Link to={'/lessons/primitive'}>'Примитивные типы данных'</Link>.
+        </p>
       </div>
     </>
   )

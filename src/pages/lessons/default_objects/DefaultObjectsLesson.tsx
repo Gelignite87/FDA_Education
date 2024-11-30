@@ -2521,12 +2521,13 @@ export const DefaultObjectsLesson: React.FC = () => {
               <span
                 onClick={() =>
                   copyToClipboard(
-                    'JSON.stringify({name: "Alice", age: 25}, ["name"], 2) → \'{\n  "name": "Alice"\n}\'',
+                    'JSON.stringify({name: "Alice", age: 25}, ["name"], 2) → \'{  "name":  "Alice"  }\'',
                   )
                 }
               >
                 JSON.stringify(&#123;name: "Alice", age: 25&#125;, ["name"], 2)
-                → '&#123;\n "name": "Alice"\n&#125;'
+                →
+                '&#123;&nbsp;&nbsp;"name":&nbsp;&nbsp;"Alice"&nbsp;&nbsp;&#125;'
               </span>
             </p>
           </Accordion>
@@ -3365,8 +3366,7 @@ export const DefaultObjectsLesson: React.FC = () => {
         <br />
         <p>
           Методы работы с объектами-обёртками примитивных типов данных (String,
-          Number, Boolean, Symbol, BigInt) находятся на соответствующей странице
-          &nbsp;
+          Number, Boolean, Symbol, BigInt) находятся на странице &nbsp;
           <Link to={'/lessons/primitive'}>'Примитивные типы данных'</Link>.
         </p>
       </div>

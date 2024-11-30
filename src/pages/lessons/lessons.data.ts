@@ -11,6 +11,7 @@ import { FunctionLesson } from './function/FunctionLesson'
 import { ClassJSLesson } from './class_JS/ClassJSLesson'
 import { ObjectLesson } from './object/ObjectLesson'
 import { ArrayLesson } from './array/ArrayLesson'
+import { AsyncLesson } from './async/AsyncLesson'
 
 export const lessonsMap = {
   primitive: { banner: 'Примитивные типы данных', component: PrimitiveLesson },
@@ -44,6 +45,10 @@ export const lessonsMap = {
   interaction_DOM: {
     banner: 'Взаимодействие с DOM-деревом',
     component: InteractionDOMLesson,
+  },
+  async: {
+    banner: 'Асинхронные операции',
+    component: AsyncLesson,
   },
   typescript: {
     banner: 'Типизация в TypeScript',

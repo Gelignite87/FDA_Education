@@ -1,6 +1,7 @@
 import { UsefulOperatorLesson } from './useful_operator/UsefulOperatorLesson'
 import { UseStateUseRefLesson } from './useState_useRef/UseStateUseRefLesson'
 import { InteractionDOMLesson } from './interaction_DOM/InteractionDOMLesson'
+import { DefaultObjectsLesson } from './default_objects/DefaultObjectsLesson'
 import { StartPageViteLesson } from './start_page_Vite/StartPageViteLesson'
 import { DestructuringLesson } from './destructuring/DestructuringLesson'
 import { ConstructorLesson } from './constructor/ConstructorLesson'
@@ -19,9 +20,17 @@ export const lessonsMap = {
     banner: 'Конструкторы',
     component: ConstructorLesson,
   },
+  class_JS: {
+    banner: 'Классы JavaScript',
+    component: ClassJSLesson,
+  },
   function: {
     banner: 'Функции',
     component: FunctionLesson,
+  },
+  default_objects: {
+    banner: 'Объекты, доступные в JavaScript по умолчанию',
+    component: DefaultObjectsLesson,
   },
   useful_operator: {
     banner: 'Полезные операторы',
@@ -32,10 +41,6 @@ export const lessonsMap = {
     component: DestructuringLesson,
   },
   prototype: { banner: 'Прототипы', component: PrototypeLesson },
-  class_JS: {
-    banner: 'Классы JavaScript',
-    component: ClassJSLesson,
-  },
   interaction_DOM: {
     banner: 'Взаимодействие с DOM-деревом',
     component: InteractionDOMLesson,

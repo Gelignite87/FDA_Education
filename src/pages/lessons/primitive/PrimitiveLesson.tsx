@@ -1,4 +1,4 @@
-import { Accordion } from '../../../components/accordeon/Accordion'
+import { Accordion } from '../../../components/accordion/Accordion'
 import { copyToClipboard } from '../../../utils/utils'
 import styles from './PrimitiveLesson.module.sass'
 

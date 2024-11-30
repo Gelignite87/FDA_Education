@@ -2,34 +2,30 @@
 
 .accordion
 	overflow: hidden
-	> button
+	background-color: variables.$color-lovely-black-light
+	> .accordion_button
 		display: flex
 		justify-content: center
 		align-items: center
-		width: 100%
-		padding: 0
-		&:focus,
-		:focus-visible
-			outline: none
-	.button_isOpen
+		border: 1px solid rgba(255, 255, 255, 0.87)
+		cursor: pointer
+		&:hover > div,
+		&:hover > svg
+			color: variables.$color-lovely-violet-light
+			filter: drop-shadow(0 0 0.8em #646cffcc)
+	.accordion_button_isOpen
 		border-radius: 8px 8px 0 0
 		border-bottom: none
-		&:hover
-			border: 1px solid rgba(255, 255, 255, 0.87)
-			border-bottom: none
 		> svg
 			transform: rotate(-180deg) translateY(-3px)
 			transition: transform 0.4s ease
-	.button_isClose
+	.accordion_button_isClose
 		border-radius: 8px
 		transition: border-radius 0s ease 0.4s, border-bottom 0s ease 0.4s
-		&:hover
-			border: 1px solid rgba(255, 255, 255, 0.87)
 		> svg
 			transform: rotate(0deg) translateY(0px)
 			transition: transform 0.4s ease
 	.accordion_content
-		background-color: variables.$color-lovely-black-light
 		max-height: var(--dynamic-max-height)
 		padding: 0 15px
 		border-radius: 0 0 8px 8px

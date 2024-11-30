@@ -19,8 +19,9 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
   return (
     <>
       <div className={styles.accordion}>
-        <button
-          className={isOpen ? styles.button_isOpen : styles.button_isClose}
+        <div
+          className={`${styles.accordion_button} ${isOpen ? styles.accordion_button_isOpen : styles.accordion_button_isClose}
+          `}
           onClick={() => {
             setIsOpen(!isOpen)
           }}
@@ -38,7 +39,7 @@ export const Accordion: React.FC<{ children: React.ReactNode }> = ({
           >
             <path d="M6 10L12 16L18 10" />
           </svg>
-        </button>
+        </div>
         <div
           className={`${styles.accordion_content}
             ${isOpen ? styles.accordion_isOpen : styles.accordion_isClose}

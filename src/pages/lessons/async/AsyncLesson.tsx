@@ -1,7 +1,39 @@
 import { copyToClipboard } from '../../../utils/utils'
 import styles from './AsyncLesson.module.sass'
+import { useEffect, useState } from 'react'
 
 export const AsyncLesson: React.FC = () => {
+  const [results, setResults] = useState<any[]>([])
+  async function fetchAllData(): Promise<void> {
+    try {
+      const urls: string[] = [
+        'https://api.adviceslip.com/advice',
+        'https://api.adviceslip.com/advice',
+        'https://api.adviceslip.com/advice',
+      ]
+      const fetchPromises: Promise<any>[] = urls.map((url: string) =>
+        fetch(url).then(response => {
+          if (!response.ok) {
+            throw new Error(`Failed to fetch ${url}: ${response.status}`)
+          }
+          return response.json() as Promise<any>
+        }),
+      )
+      const results: any[] = await Promise.all(fetchPromises)
+      setResults(results)
+
+      console.log('Results 1:', results[0].slip.advice)
+      console.log('Results 2:', results[1].slip.advice)
+      console.log('Results 3:', results[2].slip.advice)
+    } catch (error) {
+      console.error('Error fetching data:', (error as Error).message)
+    }
+  }
+
+  useEffect(() => {
+    fetchAllData()
+  }, [])
+
   return (
     <>
       <div className={styles.Async_text}>
@@ -345,6 +377,141 @@ fetchData()`,
             &nbsp;всегда возвращает Promise &#123;&lt;pending&gt;&#125;.
             Добраться до результата работы Promise можно только в блоке try и
             записать этот результат например в State.
+          </p>
+        </div>
+        <br />
+        <div>
+          <div
+            onClick={() =>
+              copyToClipboard(
+                `async function fetchAllData(): Promise<void> {
+  try {
+    const urls: string[] = [
+      'https://api.adviceslip.com/advice',
+      'https://api.adviceslip.com/advice',
+      'https://api.adviceslip.com/advice',
+    ]
+    const fetchPromises: Promise<any>[] = urls.map((url: string) =>
+      fetch(url).then(response => {
+        if (!response.ok) {
+          throw new Error(\`Failed to fetch \${url}: \${response.status}\`)
+        }
+        return response.json() as Promise<any>
+      }),
+    )
+    const results: any[] = await Promise.all(fetchPromises)
+
+    console.log('Results 1:', results[0].slip.advice)
+    console.log('Results 2:', results[1].slip.advice)
+    console.log('Results 3:', results[2].slip.advice)
+  } catch (error) {
+    console.error('Error fetching data:', (error as Error).message)
+  }
+}
+
+fetchAllData()`,
+              )
+            }
+          >
+            async function fetchAllData(): Promise&lt;void&gt; &#123;
+            <br />
+            &nbsp;&nbsp;try &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const urls: string[] = [
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice',
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice',
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice',
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;]
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const fetchPromises: Promise&lt;any&gt;[] =
+            urls.map((url: string) =&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch(url).then(response =&gt;
+            &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok)
+            &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw
+            new Error(`Failed to fetch $&#123;url&#125;:
+            $&#123;response.status&#125;`)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return
+            response.json() as Promise&lt;any&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;),
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const results: any[] = await
+            Promise.all(fetchPromises)
+            <br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 1:',
+            results[0].slip.advice)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 2:',
+            results[1].slip.advice)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 3:',
+            results[2].slip.advice)
+            <br />
+            &nbsp;&nbsp;&#125; catch (error) &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.error('Error fetching data:', (error
+            as Error).message)
+            <br />
+            &nbsp;&nbsp;&#125;
+            <br />
+            <br />
+            fetchData()
+          </div>
+          <b>&nbsp;&nbsp;</b>
+          <p>
+            Promise.all().
+            <br />
+            Ожидает результат работы нескольких промисов. Если хотя бы один не
+            выполнен, выдаёт ошибку.
+            <br />
+            <br />
+            <span
+              onClick={() =>
+                copyToClipboard(
+                  "console.log('Results 1:', results[0].slip.advice)",
+                )
+              }
+            >
+              console.log('Results 1:', results[0].slip.advice)
+            </span>
+            &nbsp; // {results[0]?.slip?.advice}
+            <br />
+            <span
+              onClick={() =>
+                copyToClipboard(
+                  "console.log('Results 2:', results[1].slip.advice)",
+                )
+              }
+            >
+              console.log('Results 2:', results[1].slip.advice)
+            </span>
+            &nbsp; // {results[1]?.slip?.advice}
+            <br />
+            <span
+              onClick={() =>
+                copyToClipboard(
+                  "console.log('Results 3:', results[2].slip.advice)",
+                )
+              }
+            >
+              console.log('Results 3:', results[2].slip.advice)
+            </span>
+            &nbsp; // {results[2]?.slip?.advice}
           </p>
         </div>
       </div>

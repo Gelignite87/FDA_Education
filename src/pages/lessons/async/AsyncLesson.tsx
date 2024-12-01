@@ -14,82 +14,67 @@ export const AsyncLesson: React.FC = () => {
           серверу, чтение файлов или задержки.
         </p>
         <br />
+        <p>Основные концепции:</p>
         <p>
-          <span
-            onClick={() =>
-              copyToClipboard('const arr = new Array(1, 2, 3, 4, 5)')
-            }
-          >
-            const arr = new Array(1, 2, 3, 4, 5)
-          </span>
-          &nbsp; Конструктор для создания массивов.
+          1 Event Loop (Цикл событий). Это механизм, который управляет
+          выполнением кода, обрабатывает события и выполняет операции,
+          поставленные в очередь. JavaScript является однопоточным, но благодаря
+          циклу событий он может выполнять асинхронные задачи, ставя их в
+          очередь выполнения.
+        </p>
+        <p>
+          2 Callbacks (Обратные вызовы). Это функции, которые передаются как
+          аргументы другим функциям и вызываются позже, когда завершится
+          асинхронная операция.
+        </p>
+        <p>
+          3 Promises (Промисы). Промисы — это объекты, которые представляют
+          результат асинхронной операции, который может быть получен в будущем.
+          Промис может быть в одном из трёх состояний: Pending (ожидание):
+          начальное состояние. Fulfilled (выполнено): операция завершилась
+          успешно. Rejected (отклонено): операция завершилась с ошибкой.
+        </p>
+        <p>
+          4 Async/Await. Это синтаксический сахар над промисами, который
+          позволяет писать асинхронный код так, будто он синхронный.
         </p>
         <br />
-        <p>Пример конструктора c методом в прототипе:</p>
         <div>
           <div
             onClick={() =>
               copyToClipboard(
-                `function Person(name, age) {
-  this.name = name
-  this.age = age
+                `function fetchData(callbackData: (data: string) => void, data: string) {
+  setTimeout(() => {
+    callbackData(data)
+  }, 2000)
 }
 
-Person.prototype.greet = function() {
-  return \`Hi, my name is \${this.name} and I'm \${this.age} years old.\`
-}
-
-const person1 = new Person("Alice", 25)
-const person2 = new Person("Bob", 30)`,
+fetchData(data => console.log(data), 'Sample data')`,
               )
             }
           >
-            function Person(name, age) &#123;
+            function fetchData(callbackData: (data: string) =&gt; void, data:
+            string) &#123;
             <br />
-            &nbsp;&nbsp;this.name = name
+            &nbsp;&nbsp;setTimeout(() =&gt; &#123;
             <br />
-            &nbsp;&nbsp;this.age = age
+            &nbsp;&nbsp;&nbsp;&nbsp;callbackData(data)
             <br />
-            &#125;
-            <br />
-            <br />
-            Person.prototype.greet = function() &#123;
-            <br />
-            &nbsp;&nbsp;return `Hi, my name is &#36;&#123;this.name&#125; and
-            I'm &#36;&#123;this.age&#125; years old.`
+            &nbsp;&nbsp;&#125;, 2000)
             <br />
             &#125;
             <br />
             <br />
-            const person1 = new Person("Alice", 25)
-            <br />
-            const person2 = new Person("Bob", 30)
+            fetchData(data =&gt; console.log(data), 'Sample data')
           </div>
           <b>&nbsp;&nbsp;</b>
           <p>
-            Метод можно добавить напрямую в объект, например в this.greet, но
-            запись в прототип имеет преимущество. Методы в прототипе сохраняются
-            в одном месте и не копируются для каждого объекта, что экономит
-            память.
-            <br />
-            <br />
-            Без new, this внутри конструктора будет ссылаться на глобальный
-            объект (в строгом режиме — на undefined).
-            <br />
-            <br />
-            <span
-              onClick={() => copyToClipboard('console.log(person1.greet())')}
-            >
-              console.log(person1.greet())
+            Асинхронность через Callbacks, функция передаётся как аргумент
+            функции. Через 2 секунды сработает&nbsp;
+            <span onClick={() => copyToClipboard('console.log(data)')}>
+              console.log(data)
             </span>
-            &nbsp; // "Hi, my name is Alice and I'm 25 years old."
-            <br />
-            <span
-              onClick={() => copyToClipboard('console.log(person2.greet())')}
-            >
-              console.log(person2.greet())
-            </span>
-            &nbsp; // "Hi, my name is Bob and I'm 30 years old."
+            &nbsp;и выведет строку 'Sample data'.
           </p>
         </div>
       </div>

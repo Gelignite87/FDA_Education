@@ -50,6 +50,10 @@ export const lessonsMap = {
     banner: 'Асинхронные операции',
     component: AsyncLesson,
   },
+  http_requests: {
+    banner: 'Работа с сетью (fetch, XMLHttpRequest, axios)',
+    component: AsyncLesson,
+  },
   typescript: {
     banner: 'Типизация в TypeScript',
     component: UseStateUseRefLesson,

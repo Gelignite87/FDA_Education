@@ -9,9 +9,9 @@ export const AsyncLesson: React.FC = () => {
   async function fetchAllData(): Promise<void> {
     try {
       const urls: string[] = [
-        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 224) + 1}`,
-        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 224) + 1}`,
-        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 224) + 1}`,
+        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 223) + 1}`,
+        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 223) + 1}`,
+        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 223) + 1}`,
         `https://api.adviceslip.com/advice/element`,
         `https://api.adviceslip.com/advice/number`,
       ]
@@ -396,14 +396,15 @@ fetchData()`,
         <br />
         <div>
           <div
+            className={styles.promise_method}
             onClick={() =>
               copyToClipboard(
                 `async function fetchAllData(): Promise<void> {
   try {
     const urls: string[] = [
-      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
-      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
-      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 223) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 223) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 223) + 1}',
     ]
     const fetchPromises: Promise<any>[] = urls.map((url: string) =>
       fetch(url).then(response => {
@@ -434,13 +435,13 @@ fetchAllData()`,
             &nbsp;&nbsp;&nbsp;&nbsp;const urls: string[] = [
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
-            * 224) + 1&#125;',
+            * 223) + 1&#125;',
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
-            * 224) + 1&#125;',
+            * 223) + 1&#125;',
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
-            * 224) + 1&#125;',
+            * 223) + 1&#125;',
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;]
             <br />
@@ -492,6 +493,7 @@ fetchAllData()`,
           <b>&nbsp;&nbsp;</b>
           <p>
             Promise.all().
+            <br />
             <br />
             Ожидает результат работы нескольких промисов. Если хотя бы один не
             выполнен, выдаёт ошибку.
@@ -534,14 +536,17 @@ fetchAllData()`,
         <br />
         <div>
           <div
+            className={styles.promise_method}
             onClick={() =>
               copyToClipboard(
                 `async function fetchAllData(): Promise<void> {
   try {
     const urls: string[] = [
-      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
-      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
-      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 223) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 223) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 223) + 1}',
+      'https://api.adviceslip.com/advice/element',
+      'https://api.adviceslip.com/advice/number',
     ]
     const fetchPromises: Promise<any>[] = urls.map((url: string) =>
       fetch(url).then(response => {
@@ -551,11 +556,18 @@ fetchAllData()`,
         return response.json() as Promise<any>
       }),
     )
-    const results: any[] = await Promise.all(fetchPromises)
+    const results: any[] = await Promise.allSettled(fetchPromises)
+    const fulfilled = fetchResults
+      .filter(result => result.status === 'fulfilled')
+      .map(result => result.value)
+    const rejected = fetchResults
+      .filter(result => result.status === 'rejected')
+      .map(result => result.reason.message)
 
     console.log('Results 1:', results[0]?.slip?.advice)
     console.log('Results 2:', results[1]?.slip?.advice)
     console.log('Results 3:', results[2]?.slip?.advice)
+    console.log('Rejected:', rejected.join(', '))
   } catch (error) {
     console.error('Error fetching data:', (error as Error).message)
   }
@@ -572,13 +584,17 @@ fetchAllData()`,
             &nbsp;&nbsp;&nbsp;&nbsp;const urls: string[] = [
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
-            * 224) + 1&#125;',
+            * 223) + 1&#125;',
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
-            * 224) + 1&#125;',
+            * 223) + 1&#125;',
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
-            * 224) + 1&#125;',
+            * 223) + 1&#125;',
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/element',
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/number',
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;]
             <br />
@@ -605,7 +621,22 @@ fetchAllData()`,
             &nbsp;&nbsp;&nbsp;&nbsp;)
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;const results: any[] = await
-            Promise.all(fetchPromises)
+            Promise.allSettled(fetchPromises)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const fulfilled = fetchResults
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.filter(result =&gt;
+            result.status === 'fulfilled')
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(result =&gt; result.value)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const rejected = fetchResults
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.filter(result =&gt;
+            result.status === 'rejected')
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(result =&gt;
+            result.reason.message)
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 1:',
@@ -616,6 +647,9 @@ fetchAllData()`,
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 3:',
             results[2]?.slip?.advice)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Rejected:', rejected.join(',
+            '))
             <br />
             &nbsp;&nbsp;&#125; catch (error) &#123;
             <br />
@@ -629,10 +663,11 @@ fetchAllData()`,
           </div>
           <b>&nbsp;&nbsp;</b>
           <p>
-            Promise.all().
+            Promise.allSettled().
             <br />
-            Ожидает результат работы нескольких промисов. Если хотя бы один не
-            выполнен, выдаёт ошибку.
+            <br />
+            Ожидает результат работы нескольких промисов. Выдаёт массив объектов
+            &#123;status: 'fulfilled', value: &#123; &#125;&#125;.
             <br />
             <br />
             <span

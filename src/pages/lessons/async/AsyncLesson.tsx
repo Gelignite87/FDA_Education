@@ -180,6 +180,69 @@ fetchData()`,
             выведет строку 'Sample data'.
           </p>
         </div>
+        <br />
+        <p>Проблемы асинхронного кода и их решения:</p>
+        <p>
+          1 Callback Hell (Ад колбэков). Множественные вложенные функции,
+          усложняющие чтение и поддержку кода. Решение: Использование промисов
+          или async/await.
+        </p>
+        <p>
+          2 Обработка ошибок. Асинхронный код сложнее в отладке. Решение:
+          Использовать .catch с промисами или try-catch с async/await.
+        </p>
+        <p>
+          3 Состояния гонки (Race conditions). Когда порядок выполнения
+          асинхронных операций влияет на результат. Решение: Использование
+          синхронизации с помощью Promise.all или Promise.race.
+        </p>
+        <br />
+        <div>
+          <div
+            onClick={() =>
+              copyToClipboard(
+                `function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Sample data")
+    }, 2000)
+  })
+}
+
+fetchData().then(data => console.log(data))`,
+              )
+            }
+          >
+            function fetchData() &#123;
+            <br />
+            &nbsp;&nbsp;return new Promise((resolve, reject) =&gt; &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() =&gt; &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resolve("Sample data")
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&#125;, 2000)
+            <br />
+            &nbsp;&nbsp;&#125;)
+            <br />
+            &#125;
+            <br />
+            <br />
+            fetchData().then(data =&gt; console.log(data))
+          </div>
+          <b>&nbsp;&nbsp;</b>
+          <p>
+            Обработка ошибок через&nbsp;
+            <span
+              onClick={() =>
+                copyToClipboard('.catch(error => console.error(error.message))')
+              }
+            >
+              .catch(error =&gt; console.error(error.message))
+            </span>
+            .
+          </p>
+        </div>
       </div>
     </>
   )

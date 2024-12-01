@@ -204,12 +204,16 @@ fetchData()`,
                 `function fetchData() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve("Sample data")
+      Math.random() > 0.5
+        ? resolve('Sample data')
+        : reject(new Error('Ошибка получения данных'))
     }, 2000)
   })
 }
 
-fetchData().then(data => console.log(data))`,
+fetchData()
+  .then(data => console.log(data))
+  .catch(error => console.error("Произошла ошибка:", error.message))`,
               )
             }
           >
@@ -219,7 +223,13 @@ fetchData().then(data => console.log(data))`,
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() =&gt; &#123;
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resolve("Sample data")
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Math.random() &gt; 0.5
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;? resolve('Sample
+            data')
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: reject(new
+            Error('Ошибка получения данных'))
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&#125;, 2000)
             <br />
@@ -228,7 +238,12 @@ fetchData().then(data => console.log(data))`,
             &#125;
             <br />
             <br />
-            fetchData().then(data =&gt; console.log(data))
+            fetchData()
+            <br />
+            &nbsp;&nbsp;.then(data =&gt; console.log(data))
+            <br />
+            &nbsp;&nbsp;.catch(error =&gt; console.error("Произошла ошибка:",
+            error.message))
           </div>
           <b>&nbsp;&nbsp;</b>
           <p>
@@ -239,6 +254,75 @@ fetchData().then(data => console.log(data))`,
               }
             >
               .catch(error =&gt; console.error(error.message))
+            </span>
+            .
+          </p>
+        </div>
+        <br />
+        <div>
+          <div
+            onClick={() =>
+              copyToClipboard(
+                `async function fetchData() {
+  try {
+    const data = await new Promise<string>((resolve, reject) => {
+      setTimeout(() => {
+        Math.random() > 0.5
+          ? resolve('Sample data')
+          : reject(new Error('Ошибка получения данных'))
+      }, 2000)
+    })
+    console.log(data)
+  } catch (error) {
+    console.error('Произошла ошибка:', (error as Error).message)
+  }
+}
+
+fetchData()`,
+              )
+            }
+          >
+            async function fetchData() &#123;
+            <br />
+            &nbsp;&nbsp;try &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const data = await new
+            Promise&lt;string&gt;((resolve, reject) =&gt; &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(() =&gt; &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Math.random() &gt;
+            0.5
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?
+            resolve('Sample data')
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+            reject(new Error('Ошибка получения данных'))
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;, 2000)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&#125;)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log(data)
+            <br />
+            &nbsp;&nbsp;&#125; catch (error) &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.error('Произошла ошибка:', (error as
+            Error).message)
+            <br />
+            &nbsp;&nbsp;&#125;
+            <br />
+            &#125;
+            <br />
+            <br />
+            fetchData()
+          </div>
+          <b>&nbsp;&nbsp;</b>
+          <p>
+            Обработка ошибок через&nbsp;
+            <span onClick={() => copyToClipboard('try...catch')}>
+              try...catch
             </span>
             .
           </p>

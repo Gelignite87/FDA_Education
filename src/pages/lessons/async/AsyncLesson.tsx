@@ -3,13 +3,17 @@ import styles from './AsyncLesson.module.sass'
 import { useEffect, useState } from 'react'
 
 export const AsyncLesson: React.FC = () => {
-  const [results, setResults] = useState<any[]>([])
+  const [fulfilled, setFulfilled] = useState<any[]>([])
+  const [rejected, setRejected] = useState<any[]>([])
+
   async function fetchAllData(): Promise<void> {
     try {
       const urls: string[] = [
-        'https://api.adviceslip.com/advice',
-        'https://api.adviceslip.com/advice',
-        'https://api.adviceslip.com/advice',
+        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 224) + 1}`,
+        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 224) + 1}`,
+        `https://api.adviceslip.com/advice/${Math.floor(Math.random() * 224) + 1}`,
+        `https://api.adviceslip.com/advice/element`,
+        `https://api.adviceslip.com/advice/number`,
       ]
       const fetchPromises: Promise<any>[] = urls.map((url: string) =>
         fetch(url).then(response => {
@@ -19,12 +23,22 @@ export const AsyncLesson: React.FC = () => {
           return response.json() as Promise<any>
         }),
       )
-      const results: any[] = await Promise.all(fetchPromises)
-      setResults(results)
+      const fetchResults: any[] = await Promise.allSettled(fetchPromises)
+      // Сортируем успешные и неудачные результаты
+      const fulfilled = fetchResults
+        .filter(result => result.status === 'fulfilled')
+        .map(result => result.value) // Успешные данные
+      const rejected = fetchResults
+        .filter(result => result.status === 'rejected')
+        .map(result => result.reason.message) // Ошибки
 
-      console.log('Results 1:', results[0].slip.advice)
-      console.log('Results 2:', results[1].slip.advice)
-      console.log('Results 3:', results[2].slip.advice)
+      setFulfilled(fulfilled)
+      setRejected(rejected)
+
+      console.log('Results 1:', fulfilled[0]?.slip?.advice)
+      console.log('Results 2:', fulfilled[1]?.slip?.advice)
+      console.log('Results 3:', fulfilled[2]?.slip?.advice)
+      console.log('Rejected:', rejected.join(', '))
     } catch (error) {
       console.error('Error fetching data:', (error as Error).message)
     }
@@ -387,9 +401,9 @@ fetchData()`,
                 `async function fetchAllData(): Promise<void> {
   try {
     const urls: string[] = [
-      'https://api.adviceslip.com/advice',
-      'https://api.adviceslip.com/advice',
-      'https://api.adviceslip.com/advice',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
     ]
     const fetchPromises: Promise<any>[] = urls.map((url: string) =>
       fetch(url).then(response => {
@@ -401,9 +415,9 @@ fetchData()`,
     )
     const results: any[] = await Promise.all(fetchPromises)
 
-    console.log('Results 1:', results[0].slip.advice)
-    console.log('Results 2:', results[1].slip.advice)
-    console.log('Results 3:', results[2].slip.advice)
+    console.log('Results 1:', results[0]?.slip?.advice)
+    console.log('Results 2:', results[1]?.slip?.advice)
+    console.log('Results 3:', results[2]?.slip?.advice)
   } catch (error) {
     console.error('Error fetching data:', (error as Error).message)
   }
@@ -419,11 +433,14 @@ fetchAllData()`,
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;const urls: string[] = [
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice',
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
+            * 224) + 1&#125;',
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice',
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
+            * 224) + 1&#125;',
             <br />
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice',
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
+            * 224) + 1&#125;',
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;]
             <br />
@@ -454,13 +471,13 @@ fetchAllData()`,
             <br />
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 1:',
-            results[0].slip.advice)
+            results[0]?.slip?.advice)
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 2:',
-            results[1].slip.advice)
+            results[1]?.slip?.advice)
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 3:',
-            results[2].slip.advice)
+            results[2]?.slip?.advice)
             <br />
             &nbsp;&nbsp;&#125; catch (error) &#123;
             <br />
@@ -489,7 +506,7 @@ fetchAllData()`,
             >
               console.log('Results 1:', results[0].slip.advice)
             </span>
-            &nbsp; // {results[0]?.slip?.advice}
+            &nbsp; // {fulfilled[0]?.slip?.advice}
             <br />
             <span
               onClick={() =>
@@ -500,7 +517,7 @@ fetchAllData()`,
             >
               console.log('Results 2:', results[1].slip.advice)
             </span>
-            &nbsp; // {results[1]?.slip?.advice}
+            &nbsp; // {fulfilled[1]?.slip?.advice}
             <br />
             <span
               onClick={() =>
@@ -511,7 +528,154 @@ fetchAllData()`,
             >
               console.log('Results 3:', results[2].slip.advice)
             </span>
-            &nbsp; // {results[2]?.slip?.advice}
+            &nbsp; // {fulfilled[2]?.slip?.advice}
+          </p>
+        </div>
+        <br />
+        <div>
+          <div
+            onClick={() =>
+              copyToClipboard(
+                `async function fetchAllData(): Promise<void> {
+  try {
+    const urls: string[] = [
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
+      'https://api.adviceslip.com/advice/\${Math.floor(Math.random() * 224) + 1}',
+    ]
+    const fetchPromises: Promise<any>[] = urls.map((url: string) =>
+      fetch(url).then(response => {
+        if (!response.ok) {
+          throw new Error(\`Failed to fetch \${url}: \${response.status}\`)
+        }
+        return response.json() as Promise<any>
+      }),
+    )
+    const results: any[] = await Promise.all(fetchPromises)
+
+    console.log('Results 1:', results[0]?.slip?.advice)
+    console.log('Results 2:', results[1]?.slip?.advice)
+    console.log('Results 3:', results[2]?.slip?.advice)
+  } catch (error) {
+    console.error('Error fetching data:', (error as Error).message)
+  }
+}
+
+fetchAllData()`,
+              )
+            }
+          >
+            async function fetchAllData(): Promise&lt;void&gt; &#123;
+            <br />
+            &nbsp;&nbsp;try &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const urls: string[] = [
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
+            * 224) + 1&#125;',
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
+            * 224) + 1&#125;',
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'https://api.adviceslip.com/advice/$&#123;Math.floor(Math.random()
+            * 224) + 1&#125;',
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;]
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const fetchPromises: Promise&lt;any&gt;[] =
+            urls.map((url: string) =&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fetch(url).then(response =&gt;
+            &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok)
+            &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw
+            new Error(`Failed to fetch $&#123;url&#125;:
+            $&#123;response.status&#125;`)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return
+            response.json() as Promise&lt;any&gt;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#125;),
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const results: any[] = await
+            Promise.all(fetchPromises)
+            <br />
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 1:',
+            results[0]?.slip?.advice)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 2:',
+            results[1]?.slip?.advice)
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Results 3:',
+            results[2]?.slip?.advice)
+            <br />
+            &nbsp;&nbsp;&#125; catch (error) &#123;
+            <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;console.error('Error fetching data:', (error
+            as Error).message)
+            <br />
+            &nbsp;&nbsp;&#125;
+            <br />
+            <br />
+            fetchData()
+          </div>
+          <b>&nbsp;&nbsp;</b>
+          <p>
+            Promise.all().
+            <br />
+            Ожидает результат работы нескольких промисов. Если хотя бы один не
+            выполнен, выдаёт ошибку.
+            <br />
+            <br />
+            <span
+              onClick={() =>
+                copyToClipboard(
+                  "console.log('Results 1:', results[0].slip.advice)",
+                )
+              }
+            >
+              console.log('Results 1:', results[0].slip.advice)
+            </span>
+            &nbsp; // {fulfilled[0]?.slip?.advice}
+            <br />
+            <span
+              onClick={() =>
+                copyToClipboard(
+                  "console.log('Results 2:', results[1].slip.advice)",
+                )
+              }
+            >
+              console.log('Results 2:', results[1].slip.advice)
+            </span>
+            &nbsp; // {fulfilled[1]?.slip?.advice}
+            <br />
+            <span
+              onClick={() =>
+                copyToClipboard(
+                  "console.log('Results 3:', results[2].slip.advice)",
+                )
+              }
+            >
+              console.log('Results 3:', results[2].slip.advice)
+            </span>
+            &nbsp; // {fulfilled[2]?.slip?.advice}
+            <br />
+            <span
+              onClick={() =>
+                copyToClipboard("console.log('Rejected:', rejected.join(', '))")
+              }
+            >
+              console.log('Rejected:', rejected.join(', '))
+            </span>
+            &nbsp; // {rejected.join(', ')}
           </p>
         </div>
       </div>
